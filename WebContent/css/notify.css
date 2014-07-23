@@ -1,0 +1,83 @@
+#ui_notifIt{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+    -o-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+#ui_notifIt p{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+}
+
+/* Color setup */
+/* Configure this if you want */
+.success{
+    background-color: yellowgreen;
+    color: white;
+}
+.error{
+    background-color: orangered;
+    color: white;
+}
+.warning{
+    background-color: orange;
+    color: white;
+}
+.info{
+    background-color: deepskyblue;
+    color: white;
+}
+.default{
+    background-color: #EEE;
+    color: #444;
+}
+
+
+h2{color: #444;font-family: sans-serif;}
+#wrap{width: 550px;margin: 0 auto; min-height: 500px;margin-top: -20px;}
+button{width: 100%; padding: 10px; color: #444; background-color: #f4f4f4;cursor:pointer;border: none; margin: 2px;}
+button:hover{background-color: #DDD;}
+button:active{background-color: #777;}
+footer{font-family: sans-serif; font-size: 12px;}
+footer p{color: #aaa;}
+footer p a{color: yellowgreen; text-decoration: none;}
+.title{font-size: 57px; font-weight: bold; color: #555;margin-bottom: 0;}
+.subtitle{font-size: 14px; color: #999;margin-top: -10px;margin-bottom: 20px;}
+pre{padding: 10px; background-color: #EEE;}
+.comment{color: #AAA;}
+.string{color: teal;}
+.tag{color: blue;}
+.attr{color: green;}
+.button_download{
+	display: block;
+	font-family: sans-serif;
+	cursor: pointer;
+	width: 60px;
+	padding: 10px 30px 10px 30px;
+	font-weight: bold;
+	font-size: 20px;
+	text-decoration: none;
+	text-align: center;
+	margin: 0 auto;
+	background-color: #444;
+	color: #EEE;
+	transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+}
+.button_download:hover{
+	width: 480px;
+	background-color: yellowgreen;
+	color: #444;
+}
+.step{color: #AAA;}
