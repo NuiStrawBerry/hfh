@@ -181,7 +181,7 @@
 			  dataType: "json",
 			  type:'post',
 			  url: "getHibt",
-			  data: {'type':type,'page':page},
+			  data: {'type':type,'page':page?page:1},
 			  success:function(data){
 				console.log(data);
 				$('#houseInfolist7').empty();
@@ -192,7 +192,7 @@
 				if($("#test3 ul").children().length){
 					$("#test3 ul li").detach();
 				}
-				new Pager('',total,step,perShow).init();
+				new Pager('',total,step,perShow,type).init();
 				console.log('=======',$("#test3 ul").children());
 			  }
 			});
