@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -39,7 +40,7 @@
 	<div class="row-fluid" >
 		<div class="span3 left">
 			<div class="bs-docs-example" id="RentalContact">
-				 <legend>Contact Us</legend> 
+				 <legend><spring:message code="index.contact"/></legend> 
 				 <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=891833977&site=qq&menu=yes">
 				 	<img border="0" src="images/qq.png" alt="QQ 交谈" title="QQ 交谈"/>&nbsp;&nbsp;QQ 交谈
 			 	</a><br/>

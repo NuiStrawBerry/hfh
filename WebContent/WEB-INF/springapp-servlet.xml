@@ -15,6 +15,23 @@
 
   <context:component-scan base-package="com.hfh"/>
   
+     <!-- 定义国际化消息
+           说明:dispatcherServlet.xml 只会在servlet做出响应,所以加载信息应该放置在servlet中.
+    -->   
+   <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">   
+     
+     <!-- 其中basename用来指定properties文件的通用名
+              如实例中的messages_en.properties,messages_ja.properties通用名都是messages
+      -->
+     <property name="basename" value="message" />
+     <property name="defaultEncoding" value="UTF-8"/>
+     
+   </bean>   
+   <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <!-- 该属性可以不用配置 -->
+        <property name="defaultLocale" value="zh"></property>
+    </bean> 
+  
   <mvc:annotation-driven/>
     <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
     	<!--<property name="maxUpLoadSize">
@@ -24,6 +41,9 @@
     <!---->
 
   <mvc:interceptors>
+  	<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" >
+		<property name="paramName" value="lang" />  	
+  	</bean> 
 	<mvc:interceptor>
 		<mvc:mapping path="/management/**"/>
 	 
@@ -46,10 +66,7 @@
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>        
 	</bean>
-
-	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="messages"/>
-	</bean>
+	
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="defaultErrorView" value="404"/>
         <!-- results into 'WEB-INF/jsp/exception.jsp' -->

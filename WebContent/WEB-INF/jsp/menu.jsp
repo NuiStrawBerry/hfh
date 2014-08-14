@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 	
 	<div class="row-fluid">
 		<div class="span2">
@@ -11,14 +11,14 @@
 				<div class="span8">
 				</div>
 				<div class="span2" style="margin-top: 13px;">
-				<a href="#">中文</a>|<a href="#">英文</a>
+				<a href="?lang=zh">中文</a>|<a href="?lang=en">English</a>
 			 </div>
 			</div>
 			<div class="row-fluid" style="margin-top: 11px;">
 					<div class="m-navBar">
 					<ul class="m-nav clearfix" id="menu-sl">
 						<li class="m">
-						<h3><a href="index">网站首页</a></h3>
+						<h3><a href="index"><spring:message code="menu.home"/></a></h3>
 						</li>
 						<li class="s">|</li>
 						<li class="m">
