@@ -32,8 +32,8 @@ $(function(){
   };
 
 
-function Pager (id,total,step,perShow){
-
+function Pager (id,total,step,perShow,type){
+  this.type = type;
   this.total = total; //总数
   this.step = step||2;  //每次移动多少位
   this.perShow = perShow||10; //每页显示多少个
@@ -114,9 +114,24 @@ function Pager (id,total,step,perShow){
           if($(this).text()==_curpage)
             $(this).parent().addClass('active');
       });
+     
+     
+     $.ajax({
+         dataType: "json",
+         type:'post',
+         url: "getHibt",
+         data: {'type':$('#left_nav_menu li').filter('.active').attr('id'),'page':_curpage},
+         success:function(data){
+         console.log(data);
+         $('#houseInfolist7').empty();
+         $('#houseInfolist7').append(tmpl("tmpl-demo", data.result));
+         var inco=type=='obuilding'?'images/office_24.png':type=='villa'?'images/villa_24.png':'images/apartment_24.png';
+         //$('#icon-h').attr('src',inco);
+         }
+       });
 
     });
-
+   	
     };
 
     //页码显示
