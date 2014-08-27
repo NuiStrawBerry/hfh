@@ -3,6 +3,8 @@ package com.hfh.bean;
 import java.io.Serializable;
 import java.util.List;
 
+import org.doomdark.uuid.UUIDGenerator;
+
 
 public class HouseInfo implements Serializable {
 
@@ -37,7 +39,19 @@ public class HouseInfo implements Serializable {
 	
 	private String createTime;
 	
+	private String bedBathrooms;
 	
+	public String getBedBathrooms() {
+		return bedBathrooms;
+	}
+
+	public void setBedBathrooms(String bedBathrooms) {
+		this.bedBathrooms = bedBathrooms;
+	}
+
+	public HouseInfo(){
+		this.id= UUIDGenerator.getInstance().generateTimeBasedUUID().toString();
+	}
 	
 	public String getIsHot() {
 		return isHot;

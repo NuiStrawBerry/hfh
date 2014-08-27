@@ -29,4 +29,10 @@ public class ManagementController {
 	    public String binquiryPage (){
 	        return "management/binquiry";
 	    }
+		
+		@RequestMapping("/menu")
+		public String menu(){
+			return "management/menu";
+		}
+		
 }

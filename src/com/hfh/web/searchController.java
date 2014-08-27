@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +30,7 @@ public class searchController {
 		return "searchlist";
 	}
 	
+	private final Logger logger = Logger.getLogger(searchController.class);
 	@RequestMapping(value="/search",method = RequestMethod.POST)
 	//@ResponseBody
 	public String searchR(@RequestParam("type") String type,
@@ -83,12 +85,12 @@ public class searchController {
 	
 	@RequestMapping(value="/getHibt",method = RequestMethod.POST)
 	@ResponseBody
-	public Map getHouseInfoListBytype(@RequestParam("type") String type){
-		
+	public Map getHouseInfoListBytype(@RequestParam("type") String type,@RequestParam("page") String pageNum){
+		     logger.info(pageNum);
 		Map page = new HashMap();
 		List<HouseInfo> houseInfos = houseManager.getHouseInfoByType(type);
 		ListPageModel pm = new ListPageModel(houseInfos, 10);
-		List sublist = pm.getObjects(1);
+		List sublist = pm.getObjects(Integer.parseInt(pageNum));
 		page.put("result", sublist);
 		page.put("totalPage", pm.getTotalPages());
 		page.put("curPage", pm.getPage());
