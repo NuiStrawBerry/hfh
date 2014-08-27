@@ -12,8 +12,9 @@ public interface HouseInfoDao {
 	void deleteHouseInfoById(String id);
     HouseInfo getHouseInfoById(String id);
 	void deleteHouseInfos();
-	void updateHouseInfo();
-	void changeLeaseStatus();
+	void updateHouseInfo(HouseInfo hi);
+	boolean isExit(String id );
+	boolean changeStatus(String rId,String p,String value);
 	List<HouseInfo> getHouseInfoByConditions(String keyWords, String type,
 			String location, String bedrooms, String minRetal, String maxRetal,
 			String minFloorSize, String maxFloorSize);
