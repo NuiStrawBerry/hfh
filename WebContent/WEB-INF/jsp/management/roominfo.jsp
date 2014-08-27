@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -80,6 +79,7 @@
 		        "bPaginate": true, //  是否分页
 		        "bLengthChange": false, //能否改变页面显示记录条数的 控制
 		        "iDisplayLength": 20,    //每页显示条数的
+		        "bSort": false,    // set is default sort
 			    "aoColumns": [
 		            { "mData": "title" },
 		            { "mData": "floorSize" },
@@ -103,7 +103,13 @@
 		         	"aTargets": [ 8 ],
 		          	"mData": "download_link",
 		           	"mRender": function ( data, type, full ) {
-		            	return '<a href="roomInfoAddEdit?t=1&id='+data+'" class="btn btn-success">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="removeHouseInfo?hid='+data+'" class="btn  btn-danger">删除</a><a href="'+data+'"></a>';
+		           		var topV = full.isTopShow==0?1:0, hotV = full.isHot==0?1:0,defaultV = full.leaseStatus==0?1:0;
+		           		var topT= full.isTopShow==0?"首页显示":"取消首页显示",hoT = full.isHot==0?"热门":"取消热门",defaulT = full.leaseStatus==0?"未出租":"已出租";
+		            	return '<a href="roomInfoAddEdit?t=1&id='+data+'" class="btn btn-success">修改</a>'+
+		            			'&nbsp;&nbsp;&nbsp;&nbsp;<a href="removeHouseInfo?hid='+data+'" class="btn  btn-danger">删除</a>'+
+		            			'&nbsp;&nbsp;&nbsp;&nbsp;<span type="button" onclick="changeStatus(\''+data+'\',\'top\','+topV+')" class="btn  btn-danger" >'+topT+'</span>'+
+		            			'&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="changeStatus(\''+data+'\',\'hot\','+hotV+')" class="btn  btn-danger">'+hoT+'</button>'+
+		            			'&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="changeStatus(\''+data+'\',\'default\','+defaultV+')" class="btn  btn-danger">'+defaulT+'</button>';
 		            	
 		         	}
 		     },{
@@ -132,6 +138,42 @@
 
 	    	});	
 			});
+		// hot top default
+		var changeStatus = function(rid, p, value) {
+			console.log(rid, p, value);
+			$.ajax({
+				type : "post",
+				url : "changestatus",
+				dataType: 'json',
+				data : {
+					'rId' : rid,
+					'param' : p,
+					'value' : value
+				},
+				statusCode: {
+				    404: function() {
+				        alert("fail");
+				      }
+			    },
+				success : function(msg) {
+					console.log('=====', msg, '删除成功');   
+				if(msg.result=='success'){
+					$('#'+id+'').empty();
+					//$("#files-uTod").remove("#"+id);
+					console.log('=====', msg, '删除成功');
+				}
+					//not1();
+					//jQuery("#files-uTod").empty();
+					//loadfiles(rid);
+
+				},
+				error : function(msg) {
+					console.log('Data Saved failer:', '删除失败');
+				}
+			} 
+			)
+
+		};
 	</script>
 
 	<body>

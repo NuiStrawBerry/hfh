@@ -5,9 +5,9 @@
 <head>
 	<title>区域管理</title>
 	<meta name="decorator" content="default"/>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="js/upload/jquery.fileupload.css">
-		<link rel="stylesheet" type="text/css"  href="css/jeesite.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="js/upload/jquery.fileupload.css">
+	<link rel="stylesheet" type="text/css"  href="css/jeesite.min.css">
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/upload/vendor/jquery.ui.widget.js"></script>
@@ -54,10 +54,22 @@
 		            progress + '%'
 		        );
 		    }).on('fileuploaddone', function (e, data) {
-		    	console.log(data.result,data.files);
+		    	console.log(data.result[0],data.files);
 		    //	$("#files-uTod").empty();
+		    var file=data.result[0];
+		    var html='<div class="row" id="${wid}" style="height:37px;" height="37px">'+
+				'<div class="span6"><a href="#" title="asdasdasd" download="asdasda" >'+file.fileName+'</a></div>'+
+					'<div class="span3">'+
+						'<button class="btn btn-danger delete" onclick="deletef(\''+file.wid+'\',\''+file.roomInfoId+ '\',\''+file.changeName+ '\')>'+
+			                    '<i class="glyphicon glyphicon-trash"></i>'+
+			                    '<span>Delete</span>'+
+			    		'</button>'+
+					'</div>'+
+				'</div>';
+				$("#files-uTod").append(html);
+		    
 		        $.each(data.result, function (index, file) {
-		        	$("#files-uTod").append(tmpl('tmpl-newu', file));
+		        	
 		        	console.log(file);
 		            if (file.url) {
 		                var link = $('<a>')
@@ -82,7 +94,6 @@
 		    }).prop('disabled', !$.support.fileInput)
 		        .parent().addClass($.support.fileInput ? undefined : 'disabled');
 		}); 
-		
 		var deletef = function(id, rid, cname) {
 			console.log(id, rid);
 			jQuery.ajax({
@@ -112,20 +123,6 @@
 
 		};
 	</script>
-	
-	<script type="text/x-tmpl" id="tmpl-newu">
-			<div class="row" id="${wid}" style="height:37px;" height="37px">
-							<div class="span6">
-								 <a href="#" title="asdasdasd" download="asdasda" >${fileName }||${o.fileName }||${data.fileName }</a>
-							</div>	
-							<div class="span3">
-								<button class="btn btn-danger delete" onclick="deletef('${data.wid }','${data.roomInfoId }','${data.changeName }')">
-					                    <i class="glyphicon glyphicon-trash"></i>
-					                    <span>Delete</span>
-					    		</button>
-							</div>
-						</div>
-</script>
 </head>
 <body>
 	<ul class="nav nav-tabs">
@@ -140,25 +137,21 @@
 			  	<div class="control-group">
 				    <label class="control-label" for="title">Code:</label>
 				    <div class="controls">
-				     <form:input type="text" path="code" id="code" value="${roominfo.code}"/>
+				     <form:input type="text" path="code" id="code"/>
 		   		 	</div>
 		 		 </div>
 		 		  <div class="control-group">
 				    <label class="control-label" for="title">标题:</label>
 				    <div class="controls">
-				      <form:input type="text" path="title" id="title" value="${roominfo.title}"/>
+				      <form:input type="text" path="title" id="title" />
 		   		 	</div>
 		 		 </div>
 			 	  <div class="control-group">
 				    <label class="control-label" for="type">类型:</label>
 				    <div class="controls">
-				     <form:input type="text"  path="type" id="type" value="${roominfo.type}"/>
-				     <select>
-				     	<option value="0">请选择</option>
-				     	<option value="obuliding">公寓</option>
-				     	<option value="office">办公楼</option>
-				     	<option value="villa">别墅</option>
-				     </select>
+				      <form:select path="type">
+				        <form:options items="${list}" />
+				      </form:select>
 		   		 	</div>
 		 		 </div>
 			 	  <div class="control-group">
