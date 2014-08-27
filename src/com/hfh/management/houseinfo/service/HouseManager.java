@@ -12,8 +12,9 @@ public interface HouseManager {
     HouseInfo getHouseInfo(String id);
 	void deleteHouseInfoById(String id);
 	void deleteHouseInfos();
-	void updateHouseInfo();
-	void changeLeaseStatus();
+	void updateHouseInfo(HouseInfo hi);
+	boolean changeStatus(String rId,String p,String value);
+	void save(HouseInfo hi);
 	
 	List <HouseInfo> getHouseInfoByConditions(String keyWords,String type,String location,String bedrooms,
 			String minRetal,String maxRetal,String minFloorSize,String maxFloorSize);
