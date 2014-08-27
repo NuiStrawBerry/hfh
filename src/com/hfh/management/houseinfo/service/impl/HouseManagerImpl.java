@@ -2,6 +2,7 @@ package com.hfh.management.houseinfo.service.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import com.hfh.upload.dao.UploadDao;
 @Service
 public class HouseManagerImpl implements HouseManager {
 
+	private final Logger logger = Logger.getLogger(HouseManagerImpl.class);
 	@Autowired
 	private HouseInfoDao houseDao;
 	@Autowired
@@ -59,9 +61,10 @@ public class HouseManagerImpl implements HouseManager {
 
     
 	@Override
-	public void changeLeaseStatus() {
-		// TODO Auto-generated method stub
-
+	public boolean changeStatus(String rId,String p,String value) {
+		
+		 p = p.equals("hot")?"ishot":p.equals("top")?"istopshow":"lease_status";
+		return houseDao.changeStatus(rId, p, value);
 	}
 
 	@Override
@@ -77,11 +80,19 @@ public class HouseManagerImpl implements HouseManager {
 	}
 
 	@Override
-	public void updateHouseInfo() {
-		// TODO Auto-generated method stub
-
+	public void updateHouseInfo(HouseInfo hi) {
+		houseDao.updateHouseInfo(hi);
 	}
 
+	public void save(HouseInfo hi){
+		logger.info(houseDao.isExit(hi.getId()));
+		logger.debug(houseDao.isExit(hi.getId()));
+		if(houseDao.isExit(hi.getId())){
+			houseDao.updateHouseInfo(hi);
+		}else{
+			houseDao.addHouseInfo(hi);
+		}
+	}
    public HouseInfo getHouseInfo(String id){
        HouseInfo houseInfo =  houseDao.getHouseInfoById(id);
        List<FileMeta> images = uploadDao.getFilesByRoomInfoId(houseInfo.getId());

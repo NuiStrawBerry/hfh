@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
@@ -45,9 +46,9 @@ public class HouseInfoDaoImpl  implements HouseInfoDao {
 	}
 
 	@Override
-	public void changeLeaseStatus() {
-		// TODO Auto-generated method stub
-
+	public boolean changeStatus(String rId,String p,String value) {
+		String sql = "update roominfo set "+p+"=? where id=?";
+		return  jdbcTemplate.update(sql,new Object[]{value,rId})>0?true:false;
 	}
 
 	@Override
@@ -64,25 +65,50 @@ public class HouseInfoDaoImpl  implements HouseInfoDao {
 	}
 
 	@Override
-	public void updateHouseInfo() {
-		// TODO Auto-generated method stub
-
+	public void updateHouseInfo(final HouseInfo houseInfo) {
+		String sql = "update roominfo set code=?, type=?, localtion=?, rental=?,  title=?, bedrooms=?, floorsize=?, area=?, lease_term=?, description=? where id=?";
+		int r = jdbcTemplate.update(sql, new PreparedStatementSetter() {
+            public void setValues(PreparedStatement preparedStatement) throws SQLException {
+            	preparedStatement.setString(1, houseInfo.getCode());
+                preparedStatement.setString(2, houseInfo.getType());
+                preparedStatement.setString(3, houseInfo.getLocation());
+                preparedStatement.setFloat(4, houseInfo.getRental());
+                preparedStatement.setString(5, houseInfo.getTitle());
+                preparedStatement.setInt(6, houseInfo.getBedroom());
+                preparedStatement.setInt(7,houseInfo.getFloorSize());
+                preparedStatement.setFloat(8, houseInfo.getArea());
+                preparedStatement.setInt(9, houseInfo.getLeaseTrem());
+//                preparedStatement.setInt(10, houseInfo.getLeaseStatus());
+//                preparedStatement.setString(11, houseInfo.getIsTopShow());
+//                preparedStatement.setString(12, houseInfo.getIsHot());
+                preparedStatement.setString(10, houseInfo.getDestription());
+                preparedStatement.setString(11, houseInfo.getId());
+            }
+        });
+		
 	}
 
     @Override
     public List<HouseInfo> getHouseInfoList() {
-        String sql = "SELECT t.title,t.rental,t.type,t.bedrooms,t.code,t.floorsize,t.area,t.id,t.localtion,t.description,t.lease_term, t.lease_status FROM roominfo t ORDER BY t.creatime DESC";
+        String sql = "SELECT t.title,t.rental,t.type,t.bedrooms,t.code,t.floorsize,t.area,t.id,t.localtion,t.description,t.lease_term, t.lease_status, t.isTopShow, t.ishot,t.creatime"+
+        		" FROM roominfo t ORDER BY isTopShow DESC,t.creatime DESC";
         List<HouseInfo> result = jdbcTemplate.query(sql,new HouseInfoRowMapper());
         return result;
     }
 
     public HouseInfo getHouseInfoById(String id){
         String sql = "SELECT id,TYPE,localtion,rental,title,bedrooms,floorsize,AREA,lease_term," +
-                " lease_status,CODE,description,title FROM roominfo where id = ?";
+                " lease_status,CODE,description,title, isTopShow, ishot,creatime FROM roominfo where id = ?";
        HouseInfo houseInfo = jdbcTemplate.queryForObject(sql,new HouseInfoRowMapper(),id);
         return  houseInfo;
     }
 
+    public boolean isExit(String id ){
+    	String sql = "select count(id) from roominfo where id = ?";
+    	
+    	return jdbcTemplate.queryForObject(sql, Integer.class, id)>0?true:false;
+    	// true;
+    }
     //map row
     protected class HouseInfoRowMapper implements RowMapper<HouseInfo>{
         public HouseInfo mapRow(ResultSet rs,int rowNum) throws SQLException {
@@ -97,13 +123,16 @@ public class HouseInfoDaoImpl  implements HouseInfoDao {
             hs.setRental(rs.getFloat("rental"));
             hs.setCode(rs.getString("code"));
             hs.setLeaseTrem(Integer.parseInt(rs.getString("lease_term")));
+            hs.setCreateTime(rs.getString("creatime"));
+            hs.setIsHot(rs.getString("ishot"));
+            hs.setIsTopShow(rs.getString("isTopShow"));
             return hs;
         }
     }
 
     @Override
     public List<HouseInfo> getTopHouseInfoList() {
-        String sql = "select id, type, localtion, rental, bedrooms, floorsize, area, lease_term, lease_status, code, description, title FROM roominfo ORDER BY creatime limit 8";
+        String sql = "select id, type, localtion, rental, bedrooms, floorsize, area, lease_term, lease_status, code, description, title,ishot,isTopShow,creatime FROM roominfo ORDER BY creatime limit 8";
         
         List<HouseInfo> result =jdbcTemplate.query(sql, new HouseInfoRowMapper()); 
         	//jdbcTemplate.queryForList(sql, HouseInfo.class);
@@ -113,7 +142,7 @@ public class HouseInfoDaoImpl  implements HouseInfoDao {
     public List<HouseInfo> getTopHouseInfoList(String type,int pageSize,int limit) {
     	List params = new ArrayList();
     	
-        String sql = "select id, type, localtion, rental, bedrooms, floorsize, area, lease_term, lease_status, code, description, title FROM roominfo ";
+        String sql = "select id, type, localtion, rental, bedrooms, floorsize, area, lease_term, lease_status, code, description,ishot,isTopShow, title,creatime FROM roominfo ";
         StringBuffer sb = new StringBuffer(sql);
         if(StringUtils.isNotBlank(type)){
         	sb.append(" where type=?");
@@ -134,7 +163,7 @@ public class HouseInfoDaoImpl  implements HouseInfoDao {
 			String maxRetal, String minFloorSize, String maxFloorSize) {
 		List<String> params = new ArrayList<String> ();
 		String sql = "SELECT t.title,t.rental,t.type,t.bedrooms,t.code,t.floorsize," +
-				"t.area,t.id,t.localtion,t.description,t.lease_term, t.lease_status FROM roominfo t where 1=1";
+				"t.area,t.id,t.localtion,t.description,t.lease_term, t.lease_status,ishot,isTopShow,creatime FROM roominfo t where 1=1";
 		StringBuffer sb = new StringBuffer(sql);
 		
 		if(StringUtils.isNotBlank(type) && !"all".equals(type)){
@@ -178,7 +207,7 @@ public class HouseInfoDaoImpl  implements HouseInfoDao {
 
 	@Override
 	public List<HouseInfo> topflowInfo() {
-		String sql = "SELECT * FROM roominfo WHERE isTopShow = 1 ORDER BY creatime LIMIT 0,5 ";
+		String sql = "SELECT * FROM roominfo WHERE isTopShow = 1 and lease_status= 0 ORDER BY creatime LIMIT 0,5 ";
 		 List<HouseInfo> result =jdbcTemplate.query(sql, new HouseInfoRowMapper()); 
 		return result;
 	}
