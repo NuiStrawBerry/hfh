@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hfh.bean.OlineRequestBean;
+import com.hfh.management.onlierequest.OnlieRequestRowMapper;
 
 @Transactional
 @Service
@@ -54,12 +55,14 @@ public class OnlineRequestDaoImpl implements OnlineRequestDao {
 	        });
 	}
 
-	/*@Override
-	public List<OrInfo> getOrInfoList() {
-		return null;
+	@Override
+	public List<OlineRequestBean> getOrInfoList() {
+		String sql = "SELECT * FROM t_onlie_request";
+        List<OlineRequestBean> olineRequestBean =jdbcTemplate.query(sql, new OnlieRequestRowMapper()); 
+		return olineRequestBean;
 	}
 
-	@Override
+	/*@Override
 	public OrInfo getOrInfoById(String id) {
 		return null;
 	}*/

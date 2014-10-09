@@ -1,14 +1,12 @@
 package com.hfh.management.web;
 
-import java.util.Date;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/management")
@@ -25,6 +23,11 @@ public class ManagementController {
 	        return "management/roominfo";
 	    }
 		
+		@RequestMapping("/joblist")
+	    public String jobList (){
+	        return "management/jobList";
+	    }
+		
 		@RequestMapping("/binquiry")
 	    public String binquiryPage (){
 	        return "management/binquiry";
@@ -35,4 +38,8 @@ public class ManagementController {
 			return "management/menu";
 		}
 		
+		@RequestMapping(value="/newslist")
+	    public String newsList (){
+	        return "management/newsList";
+	    }
 }

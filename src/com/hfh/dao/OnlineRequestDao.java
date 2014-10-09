@@ -8,8 +8,8 @@ public interface OnlineRequestDao {
 	
 	void saveOrInfo(OlineRequestBean ori);
 	
-	/*List<OrInfo> getOrInfoList();
+	List<OlineRequestBean> getOrInfoList();
 	
-	OrInfo getOrInfoById(String id);*/
+	/*OrInfo getOrInfoById(String id);*/
 
 }

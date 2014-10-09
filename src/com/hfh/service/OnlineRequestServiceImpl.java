@@ -19,12 +19,13 @@ public class OnlineRequestServiceImpl implements OnlineRequestService {
 		olrd.saveOrInfo(ori);
 	}
 
-	/*@Override
-	public List<OrInfo> getOrInfoList() {
+	@Override
+	public List<OlineRequestBean> getOrInfoList() {
+		olrd.getOrInfoList();
 		return null;
 	}
 
-	@Override
+	/*@Override
 	public OrInfo getOrInfoById(String id) {
 		return null;
 	}*/
