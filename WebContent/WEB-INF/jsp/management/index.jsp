@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-	<title>Homeffrom hOme</title>
+	<title>鸿富管理端</title>
 	<meta name="decorator" content="default"/>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css"  href="css/jeesite.min.css">
@@ -22,7 +22,7 @@
 	           <ul id="menu" class="nav">
 					<!-- <li class="menu"><a class="menu" href="#" target="menuFrame">我的面板</a></li>
 					<li class="menu"><a class="menu" href="#" target="menuFrame">内容管理</a></li> -->
-					<li class="menu active"><a class="menu" href="#" target="menuFrame">系统管理</a></li>
+					<li class="menu active"><a class="menu" href="javascript:void(0);" target="menuFrame">系统管理</a></li>
 					<!-- <li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">默认站点<b class="caret"></b></a>
 						<ul class="dropdown-menu">

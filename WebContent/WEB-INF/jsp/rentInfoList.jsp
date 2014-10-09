@@ -16,7 +16,8 @@
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/tmpl.min.js"></script>
-<script src="js/pager.js"></script>
+<!-- <script src="js/pager.js"></script> -->
+<script src="js/jquery.pagination.min.js"></script>
 <style type="text/css">
 .fnt99 {
 	color: #990000;
@@ -105,6 +106,10 @@
 					<ul>
 					</ul>
 				</div>
+				<div id="test4" class="pagination  pagination-right">
+					<ul>
+					</ul>
+				</div>
 			</div>
 		</div>
 
@@ -188,18 +193,29 @@
 				$('#houseInfolist7').append(tmpl("tmpl-demo", data.result));
 				var inco=type=='obuilding'?'images/office_24.png':type=='villa'?'images/villa_24.png':'images/apartment_24.png';
 				total = data.totalPage; //$('#icon-h').attr('src',inco);
-				console.log('=======',$("#test3 ul").children());
 				if($("#test3 ul").children().length){
 					$("#test3 ul li").detach();
 				}
-				new Pager('',total,step,perShow,type).init();
-				console.log('=======',$("#test3 ul").children());
+				//new Pager('',total,step,perShow,type).init();
+			  	 $("#test4").twbsPagination({
+		    	        totalPages:total, //the number of pages (required, checked),
+				    	// startPage:'',// the current page that show on start(default: 1),
+				    	 visiblePages:6,// maximum visible pages (default: 5),
+				    	// href :,//template for pagination links (default javascript:void(0);),
+				    	// hrefVariable:'',// variable name in href template for page number (default {{number}}),
+				    	 first:'首页',// text label// (default: 'First'),
+				    	 prev:'上一页',// text label (default: 'Previous'),
+				    	 next:'下一页',// text label (default: 'Next'),
+				    	 last:'尾页', //text label (default: 'Last'),
+				    	 onPageClick: function (event, page) {
+				             t(type,page);
+				         }
+				    	// paginationClass:'', //the root style for pagination component (default: 'pagination'),		
+		    	    });
 			  }
 			});
 		};
 		$("#"+curtabs).click();
-		console.log(total+'*****');
-		
     });
   </script>
 	<!--init for this page-->

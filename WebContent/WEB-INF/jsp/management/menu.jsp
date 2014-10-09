@@ -51,9 +51,11 @@
 					<ul class="nav nav-list">
 						<li class="active"><a href="roominfo" target="mainFrame"><i class="icon-user icon-white"></i>&nbsp;信息发布</a></li>
 					
-						<li><a href="#" target="mainFrame"><i class="icon-th-large"></i>&nbsp;招聘信息</a></li>
+						<li><a href="joblist" target="mainFrame"><i class="icon-th-large"></i>&nbsp;招聘信息</a></li>
 					
-						<li><a href="#" target="mainFrame"><i class="icon-th"></i>&nbsp;关于我们</a></li>
+						<li><a href="newslist" target="mainFrame"><i class="icon-th"></i>&nbsp;公告新闻</a></li>
+						<li><a href="#" target="mainFrame"><i class="icon-th"></i>&nbsp;在线需求</a></li>
+						<li><a href="#" target="mainFrame"><i class="icon-th"></i>&nbsp;在线预订</a></li>
 					</ul>
 				</div>
 		    </div>
