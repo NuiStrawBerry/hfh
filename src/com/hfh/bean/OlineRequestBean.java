@@ -4,7 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 public class OlineRequestBean {
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	//hear from
+	private String id;
 	private String hearFrom;
 	private String otherHearFrom;
 	// contcat detail
@@ -16,9 +23,10 @@ public class OlineRequestBean {
 	private String tel;
 	private String fax;
 	private String mobile;
-	private Date arrvalDate;
-	private Date moveInDate;
-	
+//	private Date arrvalDate;
+//	private Date moveInDate;
+	private String arrvalDate;
+	private String moveInDate;
 	//house REQUIREMENTS
 	
 	private int minRentalBudget;
@@ -93,16 +101,16 @@ public class OlineRequestBean {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	public Date getArrvalDate() {
+	public String getArrvalDate() {
 		return arrvalDate;
 	}
-	public void setArrvalDate(Date arrvalDate) {
+	public void setArrvalDate(String arrvalDate) {
 		this.arrvalDate = arrvalDate;
 	}
-	public Date getMoveInDate() {
+	public String getMoveInDate() {
 		return moveInDate;
 	}
-	public void setMoveInDate(Date moveInDate) {
+	public void setMoveInDate(String moveInDate) {
 		this.moveInDate = moveInDate;
 	}
 	public int getMinRentalBudget() {

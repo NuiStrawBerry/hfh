@@ -1,15 +1,16 @@
-package com.hfh.service.impl;
+package com.hfh.management.emailagent;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hfh.bean.EmailedHouse;
 import com.hfh.common.SendMail;
-import com.hfh.dao.EmailHouseInfoDao;
-import com.hfh.service.EmailHouseInfoService;
 
 @Service
 public class EmailHouseInfoServiceImpl implements EmailHouseInfoService {
+
 
 	@Autowired
 	private EmailHouseInfoDao ehiDao; 
@@ -22,6 +23,18 @@ public class EmailHouseInfoServiceImpl implements EmailHouseInfoService {
 		ehiDao.saveEmialedHouseInfo( eh);
 		 sendMail.send();
 		return false;
+	}
+	
+	@Override
+	public List<EmailedHouse> getEmailedHouseList() {
+		List<EmailedHouse> result = ehiDao.getEmailedHouseList();
+		return result;
+	}
+
+	@Override
+	public EmailedHouse getEmailedHouseById(String id) {
+		EmailedHouse result = ehiDao.getEmailedHouseById(id);
+		return result;
 	}
 
 }

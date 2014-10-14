@@ -42,4 +42,14 @@ public class ManagementController {
 	    public String newsList (){
 	        return "management/newsList";
 	    }
+		
+		@RequestMapping(value="/onlinerequest")
+	    public String onlineRequest (){
+	        return "management/onlineRList";
+	    }
+		
+		@RequestMapping(value="/emailagent")
+	    public String emailagent (){
+	        return "management/emailAgentList";
+	    }
 }

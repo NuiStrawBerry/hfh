@@ -1,12 +1,15 @@
 package com.hfh.bean;
 
 public class EmailedHouse {
+	
 	private String phone;
 	private String fullname;
 	private String email;
 	private String houseId;
 	private String id;
 	private String message;
+	private String houseTitle;
+	private String sendTime;
 	
 	public String getPhone() {
 		return phone;
@@ -44,7 +47,18 @@ public class EmailedHouse {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+	public String getSendTime() {
+		return sendTime;
+	}
+	public void setSendTime(String sendTime) {
+		this.sendTime = sendTime;
+	}
+	public String getHouseTitle() {
+		return houseTitle;
+	}
+	public void setHouseTitle(String houseTitle) {
+		this.houseTitle = houseTitle;
+	}
 	
 
 }

@@ -10,6 +10,6 @@ public interface OnlineRequestService {
 	
 	List<OlineRequestBean> getOrInfoList();
 	
-	/*OrInfo getOrInfoById(String id);*/
+	OlineRequestBean getOrInfoDetail(String id);
 
 }

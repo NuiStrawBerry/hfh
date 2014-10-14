@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hfh.bean.EmailedHouse;
+import com.hfh.management.emailagent.EmailHouseInfoService;
 import com.hfh.management.houseinfo.service.HouseManager;
-import com.hfh.service.EmailHouseInfoService;
 
 @Controller
 public class EmailHouseController {

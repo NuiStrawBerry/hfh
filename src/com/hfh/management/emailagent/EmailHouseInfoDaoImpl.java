@@ -1,4 +1,4 @@
-package com.hfh.dao;
+package com.hfh.management.emailagent;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hfh.bean.EmailedHouse;
+import com.hfh.bean.OlineRequestBean;
+import com.hfh.management.onlierequest.OnlieRequestRowMapper;
 
 @Transactional
 @Service
@@ -37,19 +39,26 @@ public class EmailHouseInfoDaoImpl implements EmailHouseInfoDao {
 	}
 
 	@Override
-	public List<EmailedHouse> getEmailedList() {
-		return null;
+	public List<EmailedHouse> getEmailedHouseList() {
+		String sql = "select * from emailed_house_info";
+		List<EmailedHouse> eh =jdbcTemplate.query(sql, new EmailAgentRowMapper()); 
+		return eh;
 	}
 
 	@Override
-	public void getEmailedById(String id) {
-		
+	public EmailedHouse getEmailedHouseById(String id) {
+		String sql = "select * from emailed_house_info where wid = ?";
+		EmailedHouse eh = jdbcTemplate.queryForObject(sql, new Object[]{id},new EmailAgentRowMapper()); 
+		return eh;
 	}
+
 
 	@Override
 	public void delteEmialedById(String id) {
 		
 	}
-
+	/**
+	 * 获取所有的在线要求的信息
+	 */
 
 }

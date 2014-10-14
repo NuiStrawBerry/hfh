@@ -44,7 +44,7 @@
 </style>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var oTable = $('#onlieRTable').dataTable({
+			var oTable = $('#emailedHTable').dataTable({
 				'oLanguage':{
 				    "sProcessing":   "处理中...",
 				    "sLengthMenu":   "显示 _MENU_ 项结果",
@@ -73,7 +73,7 @@
 		        "bAutoWidth": false,
 		        "sPaginationType": "full_numbers",//"two_button", //分页的形式
 		        "sDom": '<"H"fl>t<"F"ip>',
-		        "sAjaxSource": '../management/onlineRequestList', //请求的连接
+		        "sAjaxSource": '../management/emailAgentList', //请求的连接
 		        "sServerMethod": "POST",
 		        "sAjaxDataProp": "rows",// 返回的数据源的key
 		        "bPaginate": true, //  是否分页
@@ -81,52 +81,59 @@
 		        "iDisplayLength": 20,    //每页显示条数的
 		        "bSort": false,    // set is default sort
 			    "aoColumns": [
-		            { "mData": "name" },
-		            { "mData": "company" },
-		            { "mData": "position" },
+		            { "mData": "fullname" },
+		            { "mData": "phone" },
 		            { "mData": "email" },
-	             	{"mData":"id"}
+	             	{"mData":"houseTitle"},
+	             	{"mData":"sendTime"},
+		            {"mData":"id"}
 			    ],"aoColumnDefs": [{
 		         	"aTargets": [ 0 ],
 		           	"mRender": function ( data, type, full ) {
-		           		console.log(full);
 		           		return '<a href="onlieRDetial?id='+full.id+'" title="查看详细">'+data+'</a>';
 		         	} 
-			    },/*{
-		         	"aTargets": [ 3 ],
-		           	"mRender": function ( data, type, full ) {
-		            	var t = data=='0'?"未发布":'已发布';
-		           		return t;
-		         	} 
-			    },{
-		         	"aTargets": [ 4 ],
-		           	"mRender": function ( data, type, full ) {
-		           		var defaultV = full.status==0?1:0,defaulT = full.status==0?"发布":"取消发布";
-		            	return '<a href="addNews?id='+data+'" class="btn btn-success">修改</a>'+
-		            			'&nbsp;&nbsp;&nbsp;&nbsp;<a href="deleteNews?hid='+data+'" class="btn  btn-danger">删除</a>';
-		         	}
-		     }*/]
+			    }]
 	    	});	
+			oTable.on('click','td',function(){
+				console.log(this);
+				var sData = oTable.fnGetData( this );
+				console.log(sData);
+			   // alert( 'The cell clicked on had the value of '+sData );
+			})
+				oTable.$('td').click(function(){
+					
+				});
 			});
 	</script>
 
 	<body>
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="onlinerequest">信息列表</a></li>
-		<li><a href="#">添加信息</a></li>
+		<li class="active"><a href="emailagent">信息列表</a></li>
 	</ul>
-	<div>
-		<table id="onlieRTable" class="table table-striped table-bordered table-hover">
-			<thead>
-				<th>姓名</th>
-				<th>单位</th>
-				<th>时间</th>
-				<th>状态</th>
-				<th>操作</th>
-			</thead>
-			<tbody >
-			</tbody>
-		</table>
+	<div class="row-fluid">
+		<div class="span8 left" >
+			<table id="emailedHTable" class="table table-striped table-bordered table-hover">
+				<thead>
+					<th>姓名</th>
+					<th>电话</th>
+					<th>邮件</th>
+					<th>房子</th>
+					<th>发送时间</th>
+					<th>操作</th>
+				</thead>
+				<tbody >
+				</tbody>
+			</table>
+			
+		</div>
+		<div class="span4 right" style="border:1px">
+			<div class="wall">房屋信息</div>
+			<div>
+				housetitle:
+			</div>
+		</div>
+		
 	</div>
+	
 </body>
 </html>

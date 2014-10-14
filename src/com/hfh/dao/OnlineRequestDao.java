@@ -6,10 +6,11 @@ import com.hfh.bean.OlineRequestBean;
 
 public interface OnlineRequestDao {
 	
-	void saveOrInfo(OlineRequestBean ori);
+	public void saveOrInfo(OlineRequestBean ori);
 	
-	List<OlineRequestBean> getOrInfoList();
+	public List<OlineRequestBean> getOrInfoList();
+
+	public OlineRequestBean getOrInfoDetail(String id);
 	
-	/*OrInfo getOrInfoById(String id);*/
 
 }

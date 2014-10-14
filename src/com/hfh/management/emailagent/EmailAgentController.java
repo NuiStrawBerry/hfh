@@ -1,4 +1,4 @@
-package com.hfh.management.onlierequest;
+package com.hfh.management.emailagent;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,31 +12,33 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hfh.bean.EmailedHouse;
 import com.hfh.bean.OlineRequestBean;
 import com.hfh.service.OnlineRequestService;
 
 @Controller
 @RequestMapping("/management")
-public class OnlieRquestManagementController {
+public class EmailAgentController {
 	
 	@Autowired
-	OnlineRequestService olrs;
+    private EmailHouseInfoService ehiService;
 	
-	@RequestMapping(value="/onlineRequestList",method = RequestMethod.POST)
+	@RequestMapping(value="/emailAgentList",method = RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> getOnlineRequestInfo(){
         Map<String,Object> result = new HashMap<String,Object>();
-        List<OlineRequestBean> r = olrs.getOrInfoList();
+        List<EmailedHouse> r = ehiService.getEmailedHouseList();
         result.put("rows",r);
         result.put("total",r.size());
         return result;
     }
 	
-	@RequestMapping(value="/onlieRDetial",method = RequestMethod.GET)
+	@RequestMapping(value="/emailAgentDetial",method = RequestMethod.GET)
     public String onlieRDetial(@RequestParam("id") String id,ModelMap model){
-        OlineRequestBean orb = olrs.getOrInfoDetail(id);
+		
+		EmailedHouse orb = ehiService.getEmailedHouseById(id);
         model.put("orb", orb);
-        return 	"management/onlineRdetail";
+        return 	"management/emailAgentList";
     }
 
 }

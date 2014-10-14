@@ -14,6 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.hfh.bean.OlineRequestBean;
 import com.hfh.management.onlierequest.OnlieRequestRowMapper;
 
+/**
+ * @author yzYang
+ *
+ */
 @Transactional
 @Service
 public class OnlineRequestDaoImpl implements OnlineRequestDao {
@@ -23,7 +27,7 @@ public class OnlineRequestDaoImpl implements OnlineRequestDao {
 	
 	@Override
 	public void saveOrInfo(final OlineRequestBean ori) {
-		
+		//TODO  搬进日期和到底日期需要 经一部的处理
 		String sql = "insert into t_onlie_request (wid, otherHearFrom, hearFrom, uname, nationality, position, "+
 		"company, email, fax, tel, mobile, arrvalDate, minRentalBudget, moveInDate, maxRentalBudget, leaseTerm, preferLocation, preferTypes, "+
 		"hasPet, homeFurnished, bedrooms, comments) values (UUID(),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -40,9 +44,9 @@ public class OnlineRequestDaoImpl implements OnlineRequestDao {
 	                preparedStatement.setString(8, ori.getFax());
 	                preparedStatement.setString(9, ori.getTel());
 	                preparedStatement.setString(10, ori.getMobile());
-	                preparedStatement.setDate(11, new Date( ori.getArrvalDate().getTime()));
+	                preparedStatement.setString(11, ori.getArrvalDate());
 	                preparedStatement.setInt(12, ori.getMinRentalBudget());
-	                preparedStatement.setDate(13, new Date(ori.getMoveInDate().getTime()));
+	                preparedStatement.setString(13, ori.getMoveInDate());
 	                preparedStatement.setInt(14, ori.getMaxRentalBudget());
 	                preparedStatement.setString(15, ori.getLeaseTerm());
 	                preparedStatement.setString(16, ori.getPreferLocation());
@@ -54,17 +58,24 @@ public class OnlineRequestDaoImpl implements OnlineRequestDao {
 	            }
 	        });
 	}
-
+	
+	/**
+	 * 获取所有的在线要求的信息
+	 */
 	@Override
 	public List<OlineRequestBean> getOrInfoList() {
 		String sql = "SELECT * FROM t_onlie_request";
         List<OlineRequestBean> olineRequestBean =jdbcTemplate.query(sql, new OnlieRequestRowMapper()); 
 		return olineRequestBean;
 	}
-
-	/*@Override
-	public OrInfo getOrInfoById(String id) {
-		return null;
-	}*/
+	/**
+	 *  获取在线要求的详情
+	 */
+	@Override
+	public OlineRequestBean getOrInfoDetail(String id) {
+		String sql = "SELECT * FROM t_onlie_request where wid=?";
+        OlineRequestBean olineRequestBean = jdbcTemplate.queryForObject(sql, new Object[]{id},new OnlieRequestRowMapper()); 
+		return olineRequestBean;
+	}
 
 }

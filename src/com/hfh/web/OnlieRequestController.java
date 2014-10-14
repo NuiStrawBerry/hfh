@@ -1,12 +1,16 @@
 package com.hfh.web;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +24,11 @@ public class OnlieRequestController{
 	
 	@Autowired
 	OnlineRequestService olrs;
+	
+	 @InitBinder
+     public void initBinder(WebDataBinder binder){
+         binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), false));
+     } 
 	
 	@RequestMapping(value="/onlineRequest",method = RequestMethod.POST)
 	@ResponseBody
@@ -47,7 +56,7 @@ public class OnlieRequestController{
 			){
 		
 				OlineRequestBean orb = new OlineRequestBean() ;
-				orb.setArrvalDate(new Date());
+				orb.setArrvalDate(arrival);
 				//orb.setBedrooms(bedrooms);
 				orb.setComments(additional);
 				orb.setCompany(company);
@@ -62,7 +71,7 @@ public class OnlieRequestController{
 				if(StringUtils.isNotBlank(minbudget))
 				orb.setMinRentalBudget(Integer.valueOf(minbudget));
 				orb.setMobile(mob);
-				orb.setMoveInDate(new Date());
+				orb.setMoveInDate(movein);
 				orb.setName(name);
 				orb.setNationality(nationality);
 				orb.setOtherHearFrom(other);

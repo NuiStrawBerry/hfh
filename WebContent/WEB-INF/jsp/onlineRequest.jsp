@@ -12,17 +12,20 @@
 <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.9.2.custom.css" />
 <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link href="plugins/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 <link href="css/home-style.css" rel="stylesheet" type="text/css" />
 <script src="js/jquery.js"></script>
 <script type="text/javascript" src="js/notifIt.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/datetimepicker/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="plugins/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
 <style type="text/css">
 
-		.fluid_container {
-			margin: 0 auto;
-			max-width: 1000px;
-			width: 90%;
-		}
+.fluid_container {
+	margin: 0 auto;
+	max-width: 1000px;
+	width: 90%;
+}
 		
 .detail_li {
     color: #666666;
@@ -100,7 +103,7 @@
 			   		 	 <div class="control-group">
 						    <label class="control-label" for="mob">Arrival Date:</label>
 						    <div class="controls">
-						     <input name="arrival" type="text" id="arrival" size="24" />
+						     <input name="arrival" type="text" readOnly='true' id="arrival">
 				   		 	</div>
 				 		 </div>
 					 </div>
@@ -132,7 +135,7 @@
 				 		  <div class="control-group">
 						    <label class="control-label" for="mob">Move-in Date: </label>
 						    <div class="controls">
-						     <input name="movein" type="text" id="movein" />
+						     <input name="movein" type="text" readOnly='true' id="movein">
 				   		 	</div>
 				 		 </div>
 					 </div>
@@ -262,6 +265,20 @@
 				});
 		})
 	
+		$('#arrival').datetimepicker({
+			language:  'zh-CN',
+		    format: 'yyyy-mm-dd',
+		    minView: 2,
+		    autoclose: 1
+		});
+		
+		$('#movein').datetimepicker({
+			language:  'zh-CN',
+		    format: 'yyyy-mm-dd',
+		    minView: 2,
+		    autoclose: 1
+		});
+		
 	
     });
     
