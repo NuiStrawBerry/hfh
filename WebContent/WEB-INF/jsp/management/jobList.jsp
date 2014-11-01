@@ -15,33 +15,28 @@
 	<script src="/jeesite_new/static/bootstrap/bsie/js/bootstrap-ie.min.js" type="text/javascript"></script><![endif]-->
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]> <script src="/jeesite_new/static/common/html5.js"></script><![endif]-->
-	
-
-<style type="text/css">
-	.dataTables_length {
-		width: 40%;
-		float: left;
-	}
-	
-	.dataTables_filter {
-		width: 50%;
-		float: right;
-		text-align: right;
-	}
-	
-	.dataTables_info {
-		width: 60%;
-		float: left;
-	}
-	
-	.dataTables_paginate {
-		float: right;
-		text-align: right;
-	}
-	
-
-
-</style>
+	<style type="text/css">
+		.dataTables_length {
+			width: 40%;
+			float: left;
+		}
+		
+		.dataTables_filter {
+			width: 50%;
+			float: right;
+			text-align: right;
+		}
+		
+		.dataTables_info {
+			width: 60%;
+			float: left;
+		}
+		
+		.dataTables_paginate {
+			float: right;
+			text-align: right;
+		}
+	</style>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var oTable = $('#jobTable').dataTable({
@@ -98,22 +93,24 @@
 		           		var defaultV = full.status==0?1:0,defaulT = full.status==0?"发布":"取消发布";
 		            	return '<a href="addJobs?id='+data+'" class="btn btn-success">修改</a>'+
 		            			'&nbsp;&nbsp;&nbsp;&nbsp;<a href="deleteJobs?hid='+data+'" class="btn  btn-danger">删除</a>'+
-		            			'&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="changeStatus(\''+data+'\',\'default\','+defaultV+')" class="btn  btn-danger">'+defaulT+'</button>';
+		            			'&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" id="status_id_'+data+'" data="default_'+defaultV+'"  onclick="changeStatus('+data+')" class="btn  btn-danger">'+defaulT+'</button>';
 		         	}
 		     	}]
 	    	});	
 			});
 		// hot top default
-		var changeStatus = function(rid, p, value) {
-			console.log(rid, p, value);
+		var changeStatus = function(rid) {
+			var btn = $("#status_id_"+rid),
+			vdata = btn.attr('data');
+			gd = vdata.split('_');
 			$.ajax({
 				type : "post",
 				url : "jobStatusChange",
 				dataType: 'json',
 				data : {
 					'rId' : rid,
-					'param' : p,
-					'value' : value
+					'param' : gd[0],
+					'value' : gd[1]
 				},
 				statusCode: {
 				    404: function() {
@@ -121,10 +118,11 @@
 				      }
 			    },
 				success : function(msg) {
-				if(msg.result=='success'){
-					console.log('=====', msg, '删除成功');
-				}
-
+					if(msg.result=='success'){
+						 btn.attr('data',vdata=='default_0'?'default_1':'default_0');
+						 btn.text(vdata=='default_0'?'发布':'取消发布');
+						console.log('=====', '删除成功');
+					}
 				},
 				error : function(msg) {
 					console.log('Data Saved failer:', '删除失败');
@@ -133,6 +131,11 @@
 			)
 
 		};
+		/* var chtml = function (btn,rid,value){
+			btn.innerText =value ==0?'发布':'取消发布';
+				
+				console.log($("#"+id).attr('onclick',changeStatus(rid,'default',value ==0?1:0)));
+		} */
 	</script>
 
 	<body>
