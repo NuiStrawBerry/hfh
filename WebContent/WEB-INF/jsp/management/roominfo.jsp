@@ -107,10 +107,10 @@
 		           		var topT= full.isTopShow==0?"首页显示":"取消首页显示",hoT = full.isHot==0?"热门":"取消热门",defaulT = full.leaseStatus==0?"未出租":"已出租";
 		            	return '<a href="roomInfoAddEdit?t=1&id='+data+'" class="btn btn-success">修改</a>'+
 		            			'&nbsp;&nbsp;&nbsp;&nbsp;<a href="removeHouseInfo?hid='+data+'" class="btn  btn-danger">删除</a>'+
-		            			'&nbsp;&nbsp;&nbsp;&nbsp;<span type="button" onclick="changeStatus(\''+data+'\',\'top\','+topV+')" class="btn  btn-danger" >'+topT+'</span>'+
-		            			'&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="changeStatus(\''+data+'\',\'hot\','+hotV+')" class="btn  btn-danger">'+hoT+'</button>'+
-		            			'&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="changeStatus(\''+data+'\',\'default\','+defaultV+')" class="btn  btn-danger">'+defaulT+'</button>';
-		            	
+		            			'&nbsp;&nbsp;&nbsp;&nbsp;<span type="button" data="top_'+topV+'_'+data+'" onclick="changeStatus(this)" class="btn  btn-danger" >'+topT+'</span>'+
+		            			'&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" data="hot_'+hotV+'_'+data+'" onclick="changeStatus(this)" class="btn  btn-danger">'+hoT+'</button>'+
+		            			'&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" data="default_'+defaultV+'_'+data+'" onclick="changeStatus(this)" class="btn  btn-danger">'+defaulT+'</button>';
+		            			
 		         	}
 		     },{
 		         	"aTargets": [ 9 ],
@@ -139,16 +139,23 @@
 	    	});	
 			});
 		// hot top default
-		var changeStatus = function(rid, p, value) {
-			console.log(rid, p, value);
+		var changeStatus = function(x) {
+			console.log(x);
+			var btn = $(x),
+			
+			mixd = btn.attr('data'),
+			vdata = mixd.split('_'),
+			rId = vdata[2];
+			console.log(vdata);
+			
 			$.ajax({
 				type : "post",
 				url : "changestatus",
 				dataType: 'json',
 				data : {
-					'rId' : rid,
-					'param' : p,
-					'value' : value
+					'rId' : rId,
+					'param' : vdata[0],
+					'value' : vdata[1]
 				},
 				statusCode: {
 				    404: function() {
@@ -156,10 +163,24 @@
 				      }
 			    },
 				success : function(msg) {
+					var showT = '',rdata='';
+					if(vdata[0]=='top'){
+						showT =vdata[1]==0?"首页显示":"取消首页显示";
+						rdata = vdata[1]==0?1:0;
+						rdata = 'top_'+rdata+'_'+rId;
+					}else if(vdata[0]=='hot'){
+						showT =vdata[1]==0?'热门':'取消热门';
+						rdata = vdata[1]==0?1:0;
+						rdata = 'hot_'+rdata+'_'+rId;
+					}else{
+						showT =vdata[1]==0?"未出租":"已出租";
+						rdata = vdata[1]==0?1:0;
+						rdata = 'default_'+rdata+'_'+rId;
+					}
 					console.log('=====', msg, '删除成功');   
 				if(msg.result=='success'){
-					$('#'+id+'').empty();
-					//$("#files-uTod").remove("#"+id);
+					 btn.attr('data',rdata);
+					 btn.text(showT);
 					console.log('=====', msg, '删除成功');
 				}
 					//not1();

@@ -131,11 +131,6 @@
 			)
 
 		};
-		/* var chtml = function (btn,rid,value){
-			btn.innerText =value ==0?'发布':'取消发布';
-				
-				console.log($("#"+id).attr('onclick',changeStatus(rid,'default',value ==0?1:0)));
-		} */
 	</script>
 
 	<body>
