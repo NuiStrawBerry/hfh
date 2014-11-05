@@ -48,4 +48,25 @@ public class TopHouseInfoController {
         r.put("houseInfoList",result);
         return r;
     }
+    
+    @RequestMapping(value="/homehoth",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,List<HouseInfo>> popularHouseList(){
+        Map<String,List<HouseInfo>> r = new HashMap<String,List<HouseInfo>>();
+        List<HouseInfo> result = houseManager.popularHouse();
+        r.put("houseInfoList",result);
+        return r;
+    }
+    
+    @RequestMapping(value="/activies",method = RequestMethod.POST)
+    @ResponseBody
+    public void getActivity(){
+    	
+    }
+    
+    @RequestMapping(value="/cooperater",method = RequestMethod.POST)
+    @ResponseBody
+    public void getCooperater(){
+    	
+    }
 }
