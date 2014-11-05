@@ -56,6 +56,8 @@
 						<li><a href="newslist" target="mainFrame"><i class="icon-th"></i>&nbsp;公告新闻</a></li>
 						<li><a href="onlinerequest" target="mainFrame"><i class="icon-th"></i>&nbsp;在线需求</a></li>
 						<li><a href="emailagent" target="mainFrame"><i class="icon-th"></i>&nbsp;在线预订</a></li>
+						<li><a href="emailagent" target="mainFrame"><i class="icon-th"></i>&nbsp;合作伙伴</a></li>
+						<li><a href="activieslist" target="mainFrame"><i class="icon-th"></i>&nbsp;节日活动</a></li>
 					</ul>
 				</div>
 		    </div>

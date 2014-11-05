@@ -6,7 +6,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/management")
@@ -41,6 +40,11 @@ public class ManagementController {
 		@RequestMapping(value="/newslist")
 	    public String newsList (){
 	        return "management/newsList";
+	    }
+		
+		@RequestMapping(value="/activieslist")
+	    public String activieslist (){
+	        return "management/activitesList";
 	    }
 		
 		@RequestMapping(value="/onlinerequest")

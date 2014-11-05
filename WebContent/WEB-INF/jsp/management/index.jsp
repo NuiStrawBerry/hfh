@@ -17,7 +17,7 @@
 		<div id="main" style="width: auto;">
 		<div id="header" class="navbar navbar-fixed-top">
 	      <div class="navbar-inner">
-	      	 <div class="brand">JeeSite Admin</div>
+	      	 <div class="brand">HomeFromHomeRealstate</div>
 	         <div class="nav-collapse">
 	           <ul id="menu" class="nav">
 					<!-- <li class="menu"><a class="menu" href="#" target="menuFrame">我的面板</a></li>
