@@ -73,7 +73,7 @@
 		        "bAutoWidth": false,
 		        "sPaginationType": "full_numbers",//"two_button", //分页的形式
 		        "sDom": '<"H"fl>t<"F"ip>',
-		        "sAjaxSource": '../management/newsList', //请求的连接
+		        "sAjaxSource": '../management/getAllac', //请求的连接
 		        "sServerMethod": "POST",
 		        "sAjaxDataProp": "rows",// 返回的数据源的key
 		        "bPaginate": true, //  是否分页

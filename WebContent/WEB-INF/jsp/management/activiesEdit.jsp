@@ -53,9 +53,9 @@
 	</ul><br/>
 	<div class="row-fluid">
 		<div >
-			 <form:form id="saveNews" class="form-horizontal" method="post" action="saveNews" modelAttribute="news">
+			 <form:form id="saveNews" class="form-horizontal" method="post" action="saveNews" modelAttribute="activies">
 			  	<form:hidden path="id"/>
-		  		<form:hidden path="status" id="status_id"/>
+		  		<%-- <form:hidden path="status" id="status_id"/> --%>
 		 		  <div class="control-group">
 				    <label class="control-label" for="title">标题:</label>
 				    <div class="controls">
@@ -63,18 +63,30 @@
 		   		 	</div>
 		 		 </div>
 		 		
-		 		 <div class="control-group">
+		 		<%--  <div class="control-group">
 				    <label class="control-label" for="type">类型:</label>
 				    <div class="controls">
 				      <form:select path="type">
 				        <form:options items="${list}" />
 				      </form:select>
 		   		 	</div>
-		 		 </div>
+		 		 </div> --%>
 		 		  <div class="control-group">
 				    <label class="control-label" for="inputEmail">内容:</label>
 				    <div class="controls">
 				    	<form:textarea id="content_id" path="content" class="auto" style="width:1024px;height:500px;" ></form:textarea>
+		   		 	</div>
+		 		 </div>
+		 		  <div class="control-group">
+				    <label class="control-label" for="activieTime">活动时间:</label>
+				    <div class="controls">
+				      <form:input type="text" path="activieTime" id="activieTime" />
+		   		 	</div>
+		 		 </div>
+		 		  <div class="control-group">
+				    <label class="control-label" for="createTime">标题:</label>
+				    <div class="controls">
+				      <form:input type="text" path="createTime" id="createTime" />
 		   		 	</div>
 		 		 </div>
 	 		 <div class="form-actions">
