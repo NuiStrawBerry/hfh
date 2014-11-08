@@ -38,5 +38,12 @@ public class ActiviesServiceImpl implements ActiviesService {
 	public boolean deleteActivies(String id) {
 		return activiesDao.deleteActivies(id);
 	}
+	
+	/**
+	 *  获取首页的信息
+	 */
+	 public List<Activies> gethomeAc (){
+		 return activiesDao.gethomeAc();
+	 }
 
 }

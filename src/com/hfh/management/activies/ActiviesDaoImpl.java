@@ -19,11 +19,16 @@ public class ActiviesDaoImpl implements ActiviesDao{
 	
 	@Override
 	public List<Activies> getAllActivies() {
-		String sql = "select * from t_activies";
+		String sql = "select * from t_activies order by acreatetime desc";
 		List<Activies> acs = jdbcTemplate.query(sql,new ActiviesRowMapper());
 		return acs;
 	}
-
+	
+	 public List<Activies> gethomeAc (){
+		 String sql = "select * from t_activies order by acreatetime desc limit 10";
+			List<Activies> acs = jdbcTemplate.query(sql,new ActiviesRowMapper());
+			return acs;
+	 }
 	@Override
 	public Activies getActivies(String id) {
 		String sql = "select * from t_activies where id = ?";
@@ -40,14 +45,14 @@ public class ActiviesDaoImpl implements ActiviesDao{
 
 	@Override
 	public boolean addActivies(final Activies ac) {
-		String sql = "INSERT INTO t_activies (actitle,acontent, actime , acreater,acreatetime) VALUES (?,?,?,?,?);";
+		String sql = "INSERT INTO t_activies (actitle,acontent, actime , acreater,acreatetime) VALUES (?,?,?,?,now());";
 		int r = jdbcTemplate.update(sql, new PreparedStatementSetter() {
             public void setValues(PreparedStatement ps) throws SQLException {
             	ps.setString(1, ac.getTitle());
             	ps.setString(2,ac.getContent());
             	ps.setString(3,ac.getActivieTime());
             	ps.setString(4,ac.getCreater());
-            	ps.setString(5,ac.getCreateTime());
+            //	ps.setString(5,ac.getCreateTime());
             }
         });
 		return r>0?true:false;

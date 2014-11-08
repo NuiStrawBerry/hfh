@@ -6,6 +6,8 @@ public interface ActiviesService {
 
 	public List<Activies> getAllActivies();
 	
+	public List<Activies> gethomeAc ();
+	
 	public Activies getActivies(String id);
 	
 	public boolean saveActivies(Activies ac);

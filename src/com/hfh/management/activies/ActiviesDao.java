@@ -12,6 +12,8 @@ import java.util.List;
 public interface ActiviesDao {
 	public List<Activies> getAllActivies();
 	
+	public List<Activies> gethomeAc ();
+	
 	public Activies getActivies(String id);
 	
 	public boolean updateActivies(Activies ac);
