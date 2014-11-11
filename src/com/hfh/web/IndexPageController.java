@@ -21,7 +21,7 @@ public class IndexPageController {
     @Autowired
     private HouseManager houseManager;
 
-    @RequestMapping(value="/index")
+    @RequestMapping(value="/")
     public String indexPage(ModelMap model){
         model.put("currentPage","index");
         return "index";
