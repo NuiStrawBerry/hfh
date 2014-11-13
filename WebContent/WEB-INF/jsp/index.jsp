@@ -48,7 +48,7 @@
 		<div class="span3 left">
 			<div class="bs-docs-example" id="RentalContact">
 				 <legend><spring:message code="index.contact"/></legend> 
-				 <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=891833977&site=qq&menu=yes">
+				 <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=312416704&site=qq&menu=yes">
 				 	<img border="0" src="images/qq.png" alt="QQ 交谈" title="QQ 交谈"/>&nbsp;&nbsp;QQ 交谈
 			 	</a><br/>
 				 <img alt="" src="images/phone_24.png">&nbsp;&nbsp;0512-62818239<br/>
