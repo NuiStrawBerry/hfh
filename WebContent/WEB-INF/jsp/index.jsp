@@ -12,11 +12,7 @@
   <!--[if lt IE 9]>
   <link rel="stylesheet" type="text/css" href="css/custom-theme/jquery.ui.1.9.2.ie.css"/>
   <![endif]-->
-<div class="container-fluid" style="width:1300px;margin:0 auto;">
-<script type="text/javascript">
-	var indexNum=0;
-
-</script>
+<div class="container-fluid container-content">
 <style type="text/css">
 .propoint a {
     color: #DC0606;
@@ -150,6 +146,7 @@
 </script>
 
  <script>
+ 	var indexNum=0;
 	var params=[{"type":"villa",'dom':'villia_list','limit':'3'},{"type":"obuilding",'dom':'ob_list','limit':'3'},{"type":"aparent",'dom':'apartment_list','limit':'6'}];
     $(function() {
     	fl();

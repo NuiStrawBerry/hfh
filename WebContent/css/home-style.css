@@ -5,13 +5,18 @@
 	list-style:none;
 }
 body {
-    background: url("../images/body.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);
+   /* background: url("../images/body.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);*/
     color: #5F5F5F;
-    font-family: Arial,Helvetica,sans-serif;
+    font-family: "Helvetica","Segoe UI",Arial,Tahoma,"Hiragino Sans GB",华文黑体,STHeiti,微软雅黑,"Microsoft YaHei",文泉驿微米黑,"WenQuanYi Micro Hei",文泉驿正黑,"WenQuanYi Zen Hei","Apple Color Emoji","Segoe UI Emoji";
     font-size: 14px;
     line-height: 28px;
     min-height: 100%;
     position: relative;
+}
+
+.container-content{
+	width:1320px;
+	margin:0 auto;
 }
 
 .bs-docs-example {
@@ -101,19 +106,20 @@ a:hover {
 }
 .h10{height:10px;}
 .h15{height:15px;}
-#header{width:1000px; margin:0 auto;}
-.m-navBar {
-	width:958px;
-	margin:0 auto;
 
+#header{width:1000px; margin:0 auto;}
+
+.m-navBar {
+	width:1320px;
+	margin:0 auto;
 	height:50px;
 	line-height:50px;
-	background:#000;
+	background:#BC1D1D;
 	color:#333;
 }
 .m-nav {
 	position:relative;
-	width:980px;
+	width:1320px;
 	margin:0 auto;
 	font-family:"Microsoft YaHei",SimSun,SimHei;
 	font-size:14px;
@@ -140,7 +146,7 @@ a:hover {
 }
 .m-nav h3 a {
 	display:block;
-	width:132px;
+	width:182px;
 	text-align:center;
 	font-weight:bold;
 }
@@ -150,7 +156,7 @@ a:hover {
 	left:-24px;
 	top:50px;
 	z-index:1;
-	width:128px;
+	width:180px;
 	border:1px solid #E6E4E3;
 	border-top:0;
 	background:#fff;
@@ -183,6 +189,19 @@ a:hover {
 	overflow:hidden;
 }
 /**menu end**/
+
+/**language**/
+.language-box{
+	 position:relative;
+	 text-align:center;
+	 height:96px;
+}
+.language-box span{
+  position:absolute;
+  bottom:0px;
+  padding:0px;
+  margin:0px
+}
 
 .footer {
     text-align: center;

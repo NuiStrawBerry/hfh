@@ -67,7 +67,8 @@ $(function () {
 	    var init = $(".m-nav .m").eq(ind);
 	    var block = $(".m-nav .block");
 	    block.css({
-	        "left": init.position().left 
+	        "left": init.position().left,
+	        "width": 182
 	    });
 	    nav.hover(function() {},
 	    function() {
