@@ -3,22 +3,21 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 	
 	<div class="row-fluid">
-		<div class="span2">
-			<img alt="140x140" src="images/logo2.png" />
-		</div>
-		<div class="span10">
+		
+		<div>
 			<div class="row-fluid">
-				<div class="span8">
+				<div class="span10">
+						<img alt="140x140" src="images/logo2.png" />
 				</div>
-				<div class="span2" style="margin-top: 13px;">
-				<a href="?lang=zh">中文</a>|<a href="?lang=en">English</a>
-			 </div>
+				<div class="span2 language-box">
+					<span><a href="?lang=zh">中文</a>|<a href="?lang=en">English</a></span>
+			 	</div>
 			</div>
 			<div class="row-fluid" style="margin-top: 11px;">
 					<div class="m-navBar">
 					<ul class="m-nav clearfix" id="menu-sl">
 						<li class="m">
-						<h3><a href="index"><spring:message code="menu.home"/></a></h3>
+						<h3><a href="/hfh"><spring:message code="menu.home"/></a></h3>
 						</li>
 						<li class="s">|</li>
 						<li class="m">
@@ -33,10 +32,11 @@
 						<li class="m">
 						<h3><a href="#">商务陪同</a></h3>
 						<ul class="sub">
+							<li><a href="#" title="接送机">签证</a></li>
 							<li><a href="#" title="接送机">接送机</a></li>
 							<li><a href="#" title="酒店预订">酒店预订</a></li>
 							<li><a href="#" title="商务出游">商务出游</a></li>
-							<li><a href="#" title="商务出游">shopping</a></li>
+							
 						</ul>
 						</li>
 						<li class="s">|</li>
@@ -46,14 +46,16 @@
 							<li><a href="#" title="合作商家">保姆</a></li>
 							<li><a href="#" title="活动方式">房屋保洁维修</a></li>
 							<li><a href="#" title="活动方式">高级管家</a></li>
+							<li><a href="#" title="商务出游">shopping</a></li>
 						</ul>
 						</li>
 						<li class="s">|</li>
 						<li class="m">
 						<h3><a  href="#">聚会活动</a></h3>
 						<ul class="sub" style="display: none;">
+						<li><a href="activies" title="活动方式">活       动</a></li>
 							<li><a href="#" title="合作商家">合作商家</a></li>
-							<li><a href="#" title="活动方式">活动方式</a></li>
+							
 						</ul>
 						</li>
 						<li class="s">|</li>
@@ -62,14 +64,15 @@
 							<ul class="sub" style="display: none;">
 							<li><a href="${pageContext.request.contextPath}/aboutus?tabs=copmpanyinfo" title="公司介绍">公司介绍</a></li>
 							<li><a href="${pageContext.request.contextPath}/aboutus?tabs=jobs" title="招聘">招聘</a></li>
-							<li><a href="${pageContext.request.contextPath}/aboutus?tabs=service"" title="服务特色核心">服务特色核心</a></li>
+							<li><a href="#" title="联系方式">联系方式</a></li>
+							<li><a href="#" title="联系我们">联系我们</a></li>
 						</ul>
 						</li>
 						<li class="s">|</li>
 						<li class="m">
-						<h3><a href="Contact.aspx" title="联系我们">联系我们</a></h3>
+						<h3><a href="#" title="联系我们">反     馈</a></h3>
 							<ul class="sub" style="display: none;">
-								<li><a href="#" title="联系方式">联系方式</a></li>
+								
 								<li><a href="#" title="意见">意见</a></li>
 								<li><a href="#" title="回执单">回执单</a></li>
 							</ul>
