@@ -10,8 +10,8 @@
 							 <label class="control-label" for="type" style="width: 35px;">Type</label>
 							<select class="formselecttype" id="type" name="type">
 								<option value="all" <c:if test="${type eq 'all' }"> selected="selected"</c:if> >All property types</option>
-								<option value="villa" <c:if test="${type eq 'villa' }"> selected="selected"</c:if> >Villa</option>
 								<option value="aparent" <c:if test="${type eq 'aparent' }"> selected="selected"</c:if> >Apartment</option>
+								<option value="villa" <c:if test="${type eq 'villa' }"> selected="selected"</c:if> >House</option>
 								<option value="obuilding" <c:if test="${type eq 'obuilding' }"> selected="selected"</c:if> >Office</option>
 							</select>
 						</div>
