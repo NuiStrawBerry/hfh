@@ -32,7 +32,7 @@ public class ActiviesDaoImpl implements ActiviesDao{
 	@Override
 	public Activies getActivies(String id) {
 		String sql = "select * from t_activies where id = ?";
-		Activies acs = jdbcTemplate.queryForObject(sql,Activies.class,id);
+		Activies acs = jdbcTemplate.queryForObject(sql,new ActiviesRowMapper() ,id);
 		return acs;
 	}
 
@@ -69,6 +69,12 @@ public class ActiviesDaoImpl implements ActiviesDao{
 	public boolean isExit(String id) {
 		String sql = "select count(id) from t_activies where id= ?";
 		return jdbcTemplate.queryForObject(sql, Integer.class, id)>0?true:false;
+	}
+	
+	public List<Activies> getActiviesByPage(String start, String limit,String pageNo){
+			 String sql = "select * from t_activies order by acreatetime desc limit ?,?";
+				List<Activies> acs = jdbcTemplate.query(sql,new ActiviesRowMapper(), new Object[]{(Integer.parseInt(pageNo)-1)*Integer.parseInt(limit),Integer.parseInt(limit)});
+				return acs;
 	}
 
 }

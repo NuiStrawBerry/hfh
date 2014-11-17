@@ -48,7 +48,7 @@
 				 	<img border="0" src="images/qq.png" alt="QQ 交谈" title="QQ 交谈"/>&nbsp;&nbsp;QQ 交谈
 			 	</a><br/>
 				 <img alt="" src="images/phone_24.png">&nbsp;&nbsp;0512-62818239<br/>
-				 <img alt="" src="images/email_24.png">sales@homefromhomerealestate.com
+				 <img alt="" src="images/email_24.png">&nbsp;&nbsp;<a href="mailto:kyle.tan@homefromhomerealestate.com" title="kyle.tan@homefromhomerealestate.com">kyle.tan</a>
 			</div>
 
 			<!--thidr-->
@@ -70,7 +70,7 @@
 			<!--thidr-->
 			<div class="bs-docs-example">
 			<legend>
-				活动
+				活动<a href="activies">more</a>
 			</legend>
 			<ul id="activies_id">
 				<li>Jiacheng Apartment 3-0-0Br 130Sqm ￥4300 </li>
@@ -83,7 +83,7 @@
 			<!--thidr-->
 			<div class="bs-docs-example">
 			<legend>
-				合作伙伴
+				合作伙伴   
 			</legend>
 			<ul>
 				<li>Jiacheng Apartment 3-0-0Br 130Sqm ￥4300 </li>
@@ -100,16 +100,16 @@
 			<jsp:include page="search.jsp"></jsp:include>
 			
 			<!-- apartment -->
-			<div id='apartment_list' class="bs-docs-example" style="height:550px;">
-				<legend class="propoint"><span class="span10"><a href="rentalist?tabs=aparent">Apartment for Rent (高档公寓)</a></span><span><a href="rentalist?tabs=aparent">More</a></span> </legend>
+			<div id='apartment_list' class="bs-docs-example" style="height:672px;">
+				<legend class="propoint"><span class="span11"><a href="rentalist?tabs=aparent">Apartment for Rent (高档公寓)</a></span><span><a href="rentalist?tabs=aparent">More</a></span> </legend>
 			</div>
 			<!--villia -->
-			<div id='villia_list' class="bs-docs-example" style="height:350px;">
-					<legend class="propoint"><span class="span10"><a href="rentalist?tabs=villa">House for Rent(别墅)</a></span><span><a href="rentalist?tabs=aparent">More</a></span> </legend>
+			<div id='villia_list' class="bs-docs-example" style="height:360px;">
+					<legend class="propoint"><span class="span11"><a href="rentalist?tabs=villa">House for Rent(别墅)</a></span><span><a href="rentalist?tabs=villa">More</a></span> </legend>
 			</div>
 			<!--ob -->
-			<div id='ob_list' class="bs-docs-example" style="height:350px;">
-				<legend class="propoint"><span class="span10"><a href="rentalist?tabs=obuilding">Office for Rent(写字楼)</a></span><span><a href="rentalist?tabs=aparent">More</a></span> </legend>
+			<div id='ob_list' class="bs-docs-example" style="height:360px;">
+				<legend class="propoint"><span class="span11"><a href="rentalist?tabs=obuilding">Office for Rent(写字楼)</a></span><span><a href="rentalist?tabs=obuilding">More</a></span> </legend>
 			</div>
 		</div>
 	</div>
@@ -202,7 +202,7 @@
     			var html = '';
     			if( acInfo.length>0){
     				for(var i = 0;i<acInfo.length;i++){
-    					html +='<li><span class="hhtitle"><a href="#">'+acInfo[i].title+'</a></span><span class="hhinfo">'+acInfo[i].createTime+' </span></li>'
+    					html +='<li><span class="hhtitle"><a href="#" title="'+acInfo[i].title+'">'+(acInfo[i].title).substr(0,10)+'...</a></span><span class="hhinfo" style=float:right">'+(acInfo[i].createTime).substr(0,10)+' </span></li>'
     				}
     				$('#activies_id').html(html);
     			}else{

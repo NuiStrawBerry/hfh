@@ -44,7 +44,7 @@
 </style>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var oTable = $('#newsTable').dataTable({
+			var oTable = $('#acTable').dataTable({
 				'oLanguage':{
 				    "sProcessing":   "处理中...",
 				    "sLengthMenu":   "显示 _MENU_ 项结果",
@@ -82,11 +82,10 @@
 		        "bSort": false,    // set is default sort
 			    "aoColumns": [
 		            { "mData": "title" },
-		            { "mData": "type" },
-		            { "mData": "creatime" },
-		            { "mData": "status" },
+		            { "mData": "activieTime" },
+		            { "mData": "createTime" },
 	             	{"mData":"id"}
-			    ],"aoColumnDefs": [{
+			    ],"aoColumnDefs": [/* {
 		         	"aTargets": [ 1 ],
 		           	"mRender": function ( data, type, full ) {
 		           		var type = 'REAL_ESTATE_NEWS';
@@ -100,13 +99,11 @@
 		            	var t = data=='0'?"未发布":'已发布';
 		           		return t;
 		         	} 
-			    },{
-		         	"aTargets": [ 4 ],
+			    }, */{
+		         	"aTargets": [ 3 ],
 		           	"mRender": function ( data, type, full ) {
-		           		var defaultV = full.status==0?1:0,defaulT = full.status==0?"发布":"取消发布";
-		            	return '<a href="addNews?id='+data+'" class="btn btn-success">修改</a>'+
-		            			'&nbsp;&nbsp;&nbsp;&nbsp;<a href="deleteNews?hid='+data+'" class="btn  btn-danger">删除</a>'+
-		            			'&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" onclick="newschangeStatus(\''+data+'\',\'default\','+defaultV+')" class="btn  btn-danger">'+defaulT+'</button>';
+		            	return '<a href="addAc?id='+data+'" class="btn btn-success">修改</a>'+
+		            			'&nbsp;&nbsp;&nbsp;&nbsp;<a href="deleteNews?hid='+data+'" class="btn  btn-danger">删除</a>';
 		            	
 		         	}
 		     }]
@@ -151,12 +148,11 @@
 		<li><a href="addAc">添加信息</a></li>
 	</ul>
 	<div>
-		<table id="newsTable" class="table table-striped table-bordered table-hover">
+		<table id="acTable" class="table table-striped table-bordered table-hover">
 			<thead>
 				<th>标题</th>
-				<th>分类</th>
-				<th>时间</th>
-				<th>状态</th>
+				<th>活动日期</th>
+				<th>创建时间</th>
 				<th>操作</th>
 			</thead>
 			<tbody >

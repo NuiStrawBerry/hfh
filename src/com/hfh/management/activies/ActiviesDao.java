@@ -22,5 +22,6 @@ public interface ActiviesDao {
 	public boolean deleteActivies(String id);
 	
 	public boolean isExit(String id);
+	public List<Activies> getActiviesByPage(String start, String limit,String pageNo);
 
 }

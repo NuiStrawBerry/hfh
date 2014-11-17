@@ -45,5 +45,10 @@ public class ActiviesServiceImpl implements ActiviesService {
 	 public List<Activies> gethomeAc (){
 		 return activiesDao.gethomeAc();
 	 }
+	 
+	public List<Activies> getActiviesByPage(String start, String limit,String pageNo){
+		 List<Activies> r = activiesDao.getActiviesByPage( start,  limit, pageNo);
+		return r;
+	}
 
 }

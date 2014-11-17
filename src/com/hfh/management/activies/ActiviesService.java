@@ -13,4 +13,6 @@ public interface ActiviesService {
 	public boolean saveActivies(Activies ac);
 	
 	public boolean deleteActivies(String id);
+	
+	public List<Activies> getActiviesByPage(String start, String limit,String pageNo);
 }
