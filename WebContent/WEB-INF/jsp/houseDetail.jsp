@@ -129,7 +129,7 @@
 				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Size:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.code}" /></spna></div>
 				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Floor:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.floorSize}" /></spna></div>
 				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Rental:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.rental}" /></spna></div>
-				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Vistor：</spna>	<spna class="detail_li2">	Total 157625 people like this property</spna></div>
+				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Visitor：</spna>	<spna class="detail_li2">	Total 157625 people like this property</spna></div>
 				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Lease Term:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.leaseTrem}" /></spna></div>
 				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Rental:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.rental}" /></spna></div>
 				<div>Click to Online Request</div>
