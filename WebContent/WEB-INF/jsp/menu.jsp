@@ -17,7 +17,7 @@
 					<div class="m-navBar">
 					<ul class="m-nav clearfix" id="menu-sl">
 						<li class="m">
-						<h3><a href="/hfh"><spring:message code="menu.home"/></a></h3>
+						<h3><a href="/"><spring:message code="menu.home"/></a></h3>
 						</li>
 						<li class="s">|</li>
 						<li class="m">

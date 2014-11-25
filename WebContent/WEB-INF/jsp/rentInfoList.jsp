@@ -13,6 +13,7 @@
 <link href="css/menu-style.css" rel="stylesheet" type="text/css" />
 <link rel='stylesheet' id='camera-css' href='css/camera.css'
 	type='text/css' media='all'>
+	<link href="css/home-style.css" rel="stylesheet" type="text/css" />
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/tmpl.min.js"></script>
@@ -40,7 +41,7 @@
 	<!--[if lt IE 9]>
   <link rel="stylesheet" type="text/css" href="css/custom-theme/jquery.ui.1.9.2.ie.css"/>
   <![endif]-->
-	<div class="container-fluid" style="width: 1170px; margin: 0 auto;">
+	<div class="container-fluid container-content">
 		<script type="text/javascript">
 	var indexNum=1;
 
@@ -86,8 +87,8 @@
 			<div id="left_nav_menu" class="span3 bs-docs-example">
 				<ul class="nav nav-list">
 					<li class="nav-header"><legend>涉外租赁</legend></li>
-					<li id="aparent" class="active"><a href="javascript:void(0)"><img
-							src="images/aparent_24.png" />高档公寓</a></li>
+					<li id="aparent" class="active"><a href="javascript:void(0)" style="height: 30px; font-size: 22px; font-family:"Helvetica","Microsoft Yahei"><img
+							src="images/aparent_24.png" /><span>高档公寓</span></a></li>
 					<li id="villa"><a href="javascript:void(0)"><img
 							src="images/villa_24.png" />别墅</a></li>
 					<li id="obuilding"><a href="javascript:void(0)"><img

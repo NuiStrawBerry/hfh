@@ -23,7 +23,27 @@
 .ac-detail{
 	margin-top: 11px;
 }
-
+.activies-detail{
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+.activies-detail .ac-poster{
+	float: left;
+	display: inline;
+	padding-right: 15px;
+}
+.ac-info{
+	width: 390px;
+	word-wrap: break-word;
+	overflow: hidden;
+}
+.ac-poster a img {
+	width: 175px;
+	height: 260px;
+}
+.ac-header{
+	height: 280px;
+}
 </style>
 <body>
   <!--[if lt IE 9]>
@@ -35,8 +55,10 @@
 	
 
 </script>
+
 	<!--menu-->
 	<jsp:include page="menu.jsp" ></jsp:include>
+	<c:out value="${id}"/>//<c:out value="${sd}"/>
 		<img src="images/About-us-2.jpg" />
 	<div class="row-fluid clearfix">
 		
@@ -64,9 +86,14 @@
 				</li>
 			</ul>
 			<div>
-				<div id='activies_list_id'></div>
-				<div id="pager_ac" class="pagination  pagination-right">
-					<ul></ul>
+				<div id="ac_detail_id" class="activies-detail" style="display:none">
+
+				</div>
+				<div id="ac_id_list">
+					<div id='activies_list_id'></div>
+					<div id="pager_ac" class="pagination  pagination-right">
+						<ul></ul>
+					</div>
 				</div>
 		    </div>
 		</div>
@@ -84,10 +111,7 @@
 			switch(this.id){
 				case 'copmpanyinfo':
 					subchild.text($(this).children().text());
-					$('#company_descriptin_detial').show();
-					$('#job_offers').hide();
-					$('#service_detail').hide();
-					$('') 
+					acEvent();
 					break;
 				case 'jobs':
 					subchild.text($(this).children().text());
@@ -96,7 +120,11 @@
 		});
 		
 		$("#"+curTab).click();	
-			getActivies(1,10);
+			
+		<c:choose>
+			<c:when test="${sd}">activityDetial('',<c:out value="${id}"/>);</c:when>
+			<c:otherwise>getActivies(1,10);</c:otherwise>
+		</c:choose>
     });
     
     var getActivies = function(pageNo,limit){
@@ -108,6 +136,9 @@
 			  success:function(data){
 				var html ='暂无活动';
 				$("#activies_list_id").html(data.result.length?tmpl("tmpl-activies", data.result):html);
+				$('#subchild').text("活动");
+				$('#ac_id_list').show();
+		    	$('#ac_detail_id').hide();
 				 $("#pager_ac").twbsPagination({
 					 totalPages:data.totalPage, //the number of pages (required, checked),
 				    	// startPage:'',// the current page that show on start(default: 1),
@@ -128,11 +159,36 @@
 			});
     }
     
-    
+    var activityDetial = function(dom,oId){
+    	var subcText = $('#subchild').text();
+		var id = arguments.length>1?oId:$(dom).attr('id');
+		var ac_html = '';
+    	$.ajax({
+  		  dataType:"json",
+  		  type:'post',
+  		  url: 'activiesDetail',
+  		  data: {'params':id,'where':'0'}  		  
+  		}).done(function(msg){
+  			$("#ac_detail_id").html(tmpl("tmpl-activies-detail", msg.activies));
+  			$("#edesc_f").html(msg.activies.content);
+  			var html = '<a href="javascript:void(0);" onclick="getActivies(1,10)">'+subcText+'</a>/ '+msg.activies.title;
+  	    	$('#subchild').html(html);
+			$('#ac_id_list').hide();
+			$('#ac_detail_id').show();
+  			console.log(msg);
+  		}).error(function(msg){
+  			alert("请求失败");
+  		});
+    }
+    var acEvent = function(){
+    	getActivies(1,10);
+    	$('#ac_id_list').show();
+    	$('#ac_detail_id').hide();
+    }
     
   </script>
   
-  	<script type="text/x-tmpl" id="tmpl-activies">
+<script type="text/x-tmpl" id="tmpl-activies">
 {% for (var i=0, data; data=o[i]; i++) { %}
 
 	<div class="row-fluid activies-box ">
@@ -142,7 +198,7 @@
 		<div class="span9 right ac-detail">
 			<ul class="list-group">
 			  <li class="list-group-item ac-title">
-			   	 <a href="#">{%=data.title%}</a>
+			   	 <a href="javascript:void(0)" onclick="activityDetial(this)" id="{%=data.id%}">{%=data.title%}</a>
 			  </li>
 			  <li class="list-group-item ac-time">
 			  	 时间：11月11日 周二 21:30||{%=data.cerateTime%}
@@ -155,6 +211,44 @@
 	</div>
 
 {% } %}
+</script>
+
+<script type="text/x-tmpl" id="tmpl-activies-detail">
+
+	<div class="ac-header">
+		<div class="ac-poster left">
+			<a>
+				<img id="poster_img" itemprop="image" src="/timgs/20140901153120_f805a164-31a9-11e4-b3ad-952efb376843.jpg" title="点击查看大图"/>
+			</a>
+		</div>
+						<div class="ac-info right">
+							<h4>{%=o.title%}</h4>
+							<div class="event-detail">
+								<span class="pl">时间:&nbsp;&nbsp;</span>11月27日 周四 19:00-21:00{%=o.activieTime%}
+							</div>
+							<div class="event-detail">
+								<span class="pl">地点:&nbsp;</span>
+									 <span>南京&nbsp;</span>
+									 <span>鼓楼区&nbsp;</span>
+									 <span>先锋书店</span>
+							</div>
+					
+							<div id="event-act">
+							    <a data-interest="wish" class="btn btn-info" href="#"><span>我感兴趣</span></a>
+							    <a data-interest="do" class="btn btn-info" href="#"><span>我要参加</span></a>
+					        </div>
+						</div>
+					</div>
+					<div class="activies-body">
+						<div class="mod" id="link-report">
+						  <h4>活动详情</h4>
+						    <div id="edesc_f" class="wr">
+								{%=o.content%}
+						    </div>
+						</div>
+					</div>
+
+
 </script>
  <!--init for this page-->
 		<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>

@@ -9,7 +9,11 @@
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <style type="text/css">
-
+.about-us-description{
+	font-family: "Helvetica","Microsoft Yahei";
+	font-size: 18px;
+	line-height: 40px;
+}
 </style>
 <body>
   <!--[if lt IE 9]>
@@ -52,7 +56,7 @@
 					公司介绍
 				</li>
 			</ul>
-			<div id='company_descriptin_detial'>
+			<div id='company_descriptin_detial' class="about-us-description">
 				<p id='company_descriptin_detial'>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Established in 2012, Suzhou Home from Home Real Estate Co. Ltd has expanded to be one of the most important and well-expected players in relocation service field. We are specialized in providing one-stop and packaged accommodation and housing service to a range of  customers both in corporates and individual expats. <br/>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;苏州鸿富行企业服务有限公司成立于2012年，现已经成为苏州涉外租赁市场最大，最专业的供应商之一。我们致力于为苏州园区的外企员工和来苏的外籍人士提供一站式、打包的住宿安家服务。<p/>
@@ -76,6 +80,19 @@
 				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our business includes: <span class="label label-important">Airport Picking Up</span>, <span class="label label-important">Hotel Reservation</span>, <span class="label label-important">Visa Application</span>, <span class="label label-important">House Leasing</span>, <span class="label label-important">Business Tour and Training</span>. With rich experience on Enterprise Services, we have build good relationships with Corporate Client, Such as Bosch, Philips, Stryke, Fairchild，ETC  <br/>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们的服务包括：<span class="label label-important">机场接机</span>，<span class="label label-important">酒店预订</span>，<span class="label label-important">签证办理</span>，<span class="label label-important">涉外租赁</span>，<span class="label label-important">商务旅游</span>以及<span class="label label-important">拓展培训</span>等一系列的企业服务。深耕企业市场，我们现在同苏州数十家大型公司建立了合作关系，其中就有博世汽车，飞利浦医疗，史塞克医疗，仙童半导体等世界知名500强企业。<br/>
 	        </p>
+	        <h3>企业文化</h3>
+			         服务决定市场     service determines market <p/>
+				 服务决定生存     service determines survival<p/>
+				 服务决定长久     service determines permanency<p/>
+				  
+		    <h3>企业理念  Corporate philosophy</h3>
+			     用最专业的团队打造只属于您身边的贴心管家
+				TO be your unique magic manager with our professional team
+				
+			<h3>合作伙伴  Corporate philosophy</h3>
+			
+
+	        
 			
 		</div>
 	</div>

@@ -202,7 +202,7 @@
     			var html = '';
     			if( acInfo.length>0){
     				for(var i = 0;i<acInfo.length;i++){
-    					html +='<li><span class="hhtitle"><a href="#" title="'+acInfo[i].title+'">'+(acInfo[i].title).substr(0,10)+'...</a></span><span class="hhinfo" style=float:right">'+(acInfo[i].createTime).substr(0,10)+' </span></li>'
+    					html +='<li><span class="hhtitle"><a href="activies?showDetail=1&p='+acInfo[i].id+'" title="'+acInfo[i].title+'">'+(acInfo[i].title).substr(0,10)+'...</a></span><span class="hhinfo" style=float:right">'+(acInfo[i].createTime).substr(0,10)+' </span></li>'
     				}
     				$('#activies_id').html(html);
     			}else{
