@@ -58,7 +58,6 @@
 
 	<!--menu-->
 	<jsp:include page="menu.jsp" ></jsp:include>
-	<c:out value="${id}"/>//<c:out value="${sd}"/>
 		<img src="images/About-us-2.jpg" />
 	<div class="row-fluid clearfix">
 		
