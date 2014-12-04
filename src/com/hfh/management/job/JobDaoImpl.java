@@ -20,6 +20,9 @@ public class JobDaoImpl implements JobDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
+	/**
+	 *add or edit job
+	 */
 	public boolean addAndEditJob(final Job job){
 		
 		String sql = "insert into t_jobs(title,content,creatime)values(?,?,now())";
@@ -32,6 +35,9 @@ public class JobDaoImpl implements JobDao{
 		return r>0?true:false;
 	}
 	
+	/**
+	 * edit job
+	 */
 	public boolean updateJob(final Job job){
 		String sql = "update t_jobs set title = ?,content = ? where id = ?";
 		int r = jdbcTemplate.update(sql, new PreparedStatementSetter() {
@@ -44,18 +50,27 @@ public class JobDaoImpl implements JobDao{
 		return r>0?true:false;
 	}
 	
+	/**
+	 * delete job
+	 */
 	public boolean deleteJob(String id){
 		String sql = "delete from t_jobs where id = ?";
 		int r = jdbcTemplate.update(sql,new Object[]{id});
 		return r>0?true:false;
 	}
 	
+	/**
+	 * changge status
+	 */
 	public boolean changeStatus(String id,String status){
 		String sql = "update t_jobs set status = ? where id = ?";
 		int r = jdbcTemplate.update(sql,new Object[]{status,id});
 		return r>0?true:false;
 	}
 	
+	/**
+	 * get jobs by id
+	 */
 	public Job getJob(String id){
 		  String sql = "SELECT id,title,content,creatime,status FROM t_jobs where id = ?";
 		  Job job = jdbcTemplate.queryForObject(sql,new JobRowMapper(),id);
