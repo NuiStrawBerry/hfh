@@ -22,5 +22,6 @@ public interface HouseManager {
 	List<HouseInfo> getHouseInfoByType(String type);
 	
 	List<HouseInfo> topflowInfo();
+	public List<HouseInfo> popularHouse();
 	
 }
