@@ -111,7 +111,6 @@ public class HousInfoController {
 	    	logger.info(t);
 	    	logger.info(id);
 	    	HouseInfo houseInfo =  new HouseInfo();
-	    	logger.info("new==="+houseInfo.getId());
 	    	if(!ADD_CODE.equals(t)){
 	    		 houseInfo = houseManager.getHouseInfo(id);
 	    	}
