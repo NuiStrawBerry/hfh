@@ -1,13 +1,8 @@
 package com.hfh.management.houseinfo.dao.impl;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.hfh.bean.HouseInfo;
+import com.hfh.management.houseinfo.dao.HouseInfoDao;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
@@ -15,8 +10,11 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.hfh.bean.HouseInfo;
-import com.hfh.management.houseinfo.dao.HouseInfoDao;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Transactional
 @Service
@@ -119,6 +117,7 @@ public class HouseInfoDaoImpl  implements HouseInfoDao {
             hs.setDestription(rs.getString("description"));
             hs.setLeaseStatus(rs.getInt("lease_status"));
             hs.setArea(rs.getFloat("AREA"));
+            hs.setFloorSize(rs.getInt("floorSize"));
             hs.setTitle(rs.getString("title"));
             hs.setRental(rs.getFloat("rental"));
             hs.setCode(rs.getString("code"));
@@ -208,6 +207,13 @@ public class HouseInfoDaoImpl  implements HouseInfoDao {
 	@Override
 	public List<HouseInfo> topflowInfo() {
 		String sql = "SELECT * FROM roominfo WHERE isTopShow = 1 and lease_status= 0 ORDER BY creatime LIMIT 0,5 ";
+		 List<HouseInfo> result =jdbcTemplate.query(sql, new HouseInfoRowMapper()); 
+		return result;
+	}
+	
+	@Override
+	public List<HouseInfo> popularHouse() {
+		String sql = "SELECT * FROM roominfo WHERE ishot = 1 AND lease_status= 0 ORDER BY creatime LIMIT 0,9 ";
 		 List<HouseInfo> result =jdbcTemplate.query(sql, new HouseInfoRowMapper()); 
 		return result;
 	}
