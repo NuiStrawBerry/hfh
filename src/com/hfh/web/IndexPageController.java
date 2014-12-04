@@ -1,16 +1,17 @@
 package com.hfh.web;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.hfh.management.houseinfo.service.HouseManager;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.hfh.management.houseinfo.service.HouseManager;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by yzYang on 14-2-18.
@@ -67,9 +68,13 @@ public class IndexPageController {
        return "onlineRequest";
    }
     
-  /*  @RequestMapping(value="/index",method = RequestMethod.GET)
-    public String indexPage(){
-
-        return "index";
-    }*/
+    @RequestMapping(value="/activies",method = RequestMethod.GET)
+    public String indexPage(@RequestParam(value="p",required = false) String id,
+                            @RequestParam(value="showDetail",required = false) String isShowDetail,
+                            Model model){
+        boolean flag = StringUtils.isNotEmpty(isShowDetail) && ("1").equals(isShowDetail)?true:false;
+        model.addAttribute("id",id);
+        model.addAttribute("sd",flag);
+        return "activies";
+    }
 }
