@@ -125,11 +125,17 @@
 		    <div class="span4">
 			    <div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Property ID:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.code}" /></spna></div>
 				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Location:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.location}" /></spna></div>
-				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Type:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.bedroom}" /></spna></div>
-				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Size:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.code}" /></spna></div>
+				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Type:</spna>	<spna class="detail_li2">
+					<c:choose>
+						<c:when test="${houseInfo.type eq 'obuliding' }">办公楼</c:when>
+						<c:when test="${houseInfo.type eq 'aparent' }">公寓</c:when>
+						<c:otherwise>别墅</c:otherwise>
+					</c:choose></spna>
+				</div>
+				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Size:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.area}" /></spna> sqm</div>
 				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Floor:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.floorSize}" /></spna></div>
 				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Rental:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.rental}" /></spna></div>
-				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Visitor：</spna>	<spna class="detail_li2">	Total 157625 people like this property</spna></div>
+				<!-- <div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Visitor：</spna>	<spna class="detail_li2">	Total 157625 people like this property</spna></div> -->
 				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Lease Term:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.leaseTrem}" /></spna></div>
 				<div style=" border-bottom: 1px dotted #EFEDEE;"><spna class="detail_li">Rental:</spna>	<spna class="detail_li2"><c:out value="${houseInfo.rental}" /></spna></div>
 				<div>Click to Online Request</div>
