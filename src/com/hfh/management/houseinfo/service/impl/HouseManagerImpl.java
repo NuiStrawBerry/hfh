@@ -1,16 +1,15 @@
 package com.hfh.management.houseinfo.service.impl;
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.hfh.bean.FileMeta;
 import com.hfh.bean.HouseInfo;
 import com.hfh.management.houseinfo.dao.HouseInfoDao;
 import com.hfh.management.houseinfo.service.HouseManager;
 import com.hfh.upload.dao.UploadDao;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class HouseManagerImpl implements HouseManager {
@@ -134,6 +133,11 @@ public class HouseManagerImpl implements HouseManager {
 	    		}
 	    	}
 		 return hi;
+	}
+	
+	public List<HouseInfo> popularHouse(){
+		List<HouseInfo> hi = houseDao.popularHouse();
+		return hi;
 	}
 
 }
