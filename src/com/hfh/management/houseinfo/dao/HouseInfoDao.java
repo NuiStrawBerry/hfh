@@ -20,6 +20,6 @@ public interface HouseInfoDao {
 			String minFloorSize, String maxFloorSize);
 	
 	List<HouseInfo> topflowInfo();
-	
+	public List<HouseInfo> popularHouse();
 	
 }
