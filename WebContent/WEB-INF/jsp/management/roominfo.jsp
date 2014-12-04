@@ -96,7 +96,16 @@
 		         	"aTargets": [ 3 ],
 		          	"mData": "download_link",
 		           	"mRender": function ( data, type, full ) {
-		            	var t = data=='aparent'?"公寓":data=='obuilding'?'办公楼':'别墅';
+		           		var t = '';
+		           		if(data=='aparent'){
+		           			t ='公寓';
+		           		}
+		           		if(data=='obuliding'){
+		           			t = '办公楼';
+		           		}
+		           		if(data=='villa'){
+		           			t = '别墅';
+		           		}
 		           		return t;
 		         	}
 			    },{
