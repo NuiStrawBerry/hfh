@@ -161,6 +161,12 @@
 		   		 	</div>
 		 		 </div>
 		 		 <div class="control-group">
+				    <label class="control-label" for="bedroom">楼层:</label>
+				    <div class="controls">
+				     <form:input type="text" path="floorSize" id="floorSize" /></div><div class="clear">
+		   		 	</div>
+		 		 </div>
+		 		 <div class="control-group">
 				    <label class="control-label" for="location">地点:</label>
 				    <div class="controls">
 				     <form:input type="text"  path="location" id="location" /><div class="clear">
