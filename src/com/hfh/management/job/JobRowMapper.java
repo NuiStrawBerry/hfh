@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import com.hfh.bean.HouseInfo;
 import com.hfh.bean.Job;
 
 public class JobRowMapper  implements RowMapper<Job>{
