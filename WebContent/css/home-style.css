@@ -35,7 +35,7 @@ body {
     line-height: 15px;
     margin: 5px 4px;
     overflow: hidden;
-    width: 254px;
+    width: 300px;
 }
 
 .pimg {
@@ -45,13 +45,14 @@ body {
 
 .pimg img {
     background: url("/shanghai/images/loading.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
-    height: 150px;
-    width: 228px;
+    height: 200px;
+    width: 280px;
 }
 
 .procont {
     color: #383434;
     padding-left: 10px;
+    margin-top: 10px;
 }
 .procont a {
     color: #383434;
