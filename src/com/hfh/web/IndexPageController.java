@@ -77,4 +77,9 @@ public class IndexPageController {
         model.addAttribute("sd",flag);
         return "activies";
     }
+    @RequestMapping(value="/commetsView",method = RequestMethod.GET)
+    public String indexPage(Model model){
+        model.addAttribute("currentPage","contact");
+        return "comment";
+    }
 }
