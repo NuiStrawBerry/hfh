@@ -71,7 +71,7 @@
 						<li class="m">
 						<h3><a href="#"><spring:message code="menu.feedback"/></a></h3>
 							<ul class="sub" style="display: none;">
-								<li><a href="#"><spring:message code="menu.ads"/></a></li>
+								<li><a href="commetsView"><spring:message code="menu.ads"/></a></li>
 							</ul>
 						</li>
 						<li class="block" style="left: 2510px;"></li>

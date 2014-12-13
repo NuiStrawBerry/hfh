@@ -70,9 +70,10 @@
 			<!--thidr-->
 			<div class="bs-docs-example">
 			<legend>
-				活动<a href="activies">more</a>
+				<span style="width:200px;" >活动</span>
+				<!-- <span ><a href="activies">more</a></span> -->
 			</legend>
-			<ul id="activies_id">
+			<ul id="activies_id" class="clear:both">
 				<li>Jiacheng Apartment 3-0-0Br 130Sqm ￥4300 </li>
 				<li>Jiacheng Apartment 3-0-0Br 130Sqm ￥4300</li>
 				<li>Jiacheng Apartment 3-0-0Br 130Sqm ￥4300</li>
@@ -83,14 +84,14 @@
 			<!--thidr-->
 			<div class="bs-docs-example">
 			<legend>
-				合作伙伴   
+				合作伙伴
 			</legend>
 			<ul>
-				<li>Jiacheng Apartment 3-0-0Br 130Sqm ￥4300 </li>
-				<li>Jiacheng Apartment 3-0-0Br 130Sqm ￥4300</li>
-				<li>Jiacheng Apartment 3-0-0Br 130Sqm ￥4300</li>
-				<li>Jiacheng Apartment 3-0-0Br 130Sqm ￥4300</li>
-				<li>Jiacheng Apartment 3-0-0Br 130Sqm ￥4300</li>
+				<li>金鸡湖大酒店</li>
+				<li>Days Hotel</li>
+				<li>雅都大酒店</li>
+				<li>苏州尼盛万丽大酒店</li>
+				<li>书香世家</li>
 			</ul>
 		</div>
 

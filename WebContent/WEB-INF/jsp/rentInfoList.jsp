@@ -31,10 +31,28 @@
 
 .listbtm {
 	border-bottom: 1px dashed #CCCCCC;
+	display: block;
+	height: 128px;
+	line-height: 43px;
 }
 
 .infobox {
 	height: 260px;
+}
+.room-detail-items{
+	width: 138px;
+	display: inline-block;
+}
+.room-detail-footer a{
+	display: inline-block;
+	width: 30%;
+}
+.house-infobox{
+	height: 260px;
+}
+
+.house-infobox div img{
+	height: 170px;
 }
 </style>
 <body>
@@ -87,7 +105,7 @@
 			<div id="left_nav_menu" class="span3 bs-docs-example">
 				<ul class="nav nav-list">
 					<li class="nav-header"><legend>涉外租赁</legend></li>
-					<li id="aparent" class="active"><a href="javascript:void(0)" style="height: 30px; font-size: 22px; font-family:"Helvetica","Microsoft Yahei"><img
+					<li id="aparent" class="active"><a href="javascript:void(0)" style="height: 30px;/* font-size: 22px; */font-family:"Helvetica","Microsoft Yahei"><img
 							src="images/aparent_24.png" /><span>高档公寓</span></a></li>
 					<li id="villa"><a href="javascript:void(0)"><img
 							src="images/villa_24.png" />别墅</a></li>
@@ -101,7 +119,48 @@
 					<li id="subchild" class="active">高档公寓</li>
 				</ul>
 				<input type="hidden" id="b_tabs" value="${tabs }">
-				<div id='houseInfolist7'></div>
+				<div id='houseInfolist7'>
+<div id="infobox" class="house-infobox">
+	<div class="well well-small">
+		<span><img id="icon-h" src="images/aparent_24.png"></span>
+		<span><strong><a href="/houseInfoDetailPage?id=40a99f92-29c2-11e4-be23-e19f4fe83399">Golden Lough / 金水湾100</a></strong></span>
+		<span class="fnt99">in&nbsp;&nbsp;<strong>Jinjihu Ave</strong></span> 
+						<!--  <span>hot</span>-->
+	</div>
+	<div class="span4 left">
+		<!--<img width="260" height="170" src="">-->
+<img src="timgs/20140901153143_057e6b9c-31aa-11e4-b3ad-952efb376843.jpg" height="170" width="260">
+
+	</div>
+	<div class="span6 right">
+		<div class="listbtm">
+			<div style="position: relative; bottom: 0px; width: 100%; margin-bottom: 2px;">
+			<div>
+				<span class="room-detail-items"><span>Property ID:</span><strong class="bluefnt">v100</strong></span>
+				<span class="room-detail-items"><span>Type:</span><strong class="bluefnt">aparent</strong></span>
+				<span class="room-detail-items"><span>Floor:</span><strong class="bluefnt">12</strong></span>
+			</div>
+			<div>
+				<span class="room-detail-items"><span>Bedrooms:</span><strong class="bluefnt">v100</strong></span>
+				<span class="room-detail-items"><span>Area:</span><strong class="bluefnt">356</strong>Sqm </span>
+				<span class="room-detail-items"><span>Rental:</span><span class="bluefnt" style="font-family:vivaldi; font-size:16px;">25000</span></span>
+			</div>
+			</div>
+		</div>
+		<div>
+			<a href="mailto:yyz201000@163.com">
+				<i class="icon-envelope"></i>联系我们
+			</a>
+			<a href="#">
+				<i class="icon-envelope"></i>在线联系
+			</a>
+			<a href="/houseInfoDetailPage?id=40a99f92-29c2-11e4-be23-e19f4fe83399" target="_blank">
+				<i class="icon-info-sign"></i>详情
+			</a>
+		</div>
+	</div>
+</div>
+				</div>
 
 				<div id="test3" class="pagination  pagination-right">
 					<ul>
@@ -131,17 +190,30 @@
 
 	</div>
 	<div class="span6 right">
-		<div class="listbtm" style="line-height: 20px;">
+		<div class="listbtm">
+			<div>
+				<span class="room-detail-items"><span>Property ID:</span><strong class="bluefnt">{%=data.code%}</strong></span>
+				<span class="room-detail-items"><span>Type:</span><strong class="bluefnt">{%=data.type%}</strong></span>
+				<span class="room-detail-items"><span>Floor:</span><strong class="bluefnt">{%=data.floorSize%}</strong></span>
+			</div>
+			<div>
+				<span class="room-detail-items"><span>Bedrooms:</span><strong class="bluefnt">{%=data.bedroom%}</strong></span>
+				<span class="room-detail-items"><span>Area:</span><strong class="bluefnt">{%=data.area%}</strong>Sqm </span>
+				<span class="room-detail-items"><span>Rental:</span><span class="bluefnt" style="font-family:vivaldi; font-size:16px;">{%=data.rental%}</span></span>
+			</div>
+		</div>
+
+
+		<!--<div class="listbtm" style="line-height: 20px;">
 			<p>Property ID:<strong class="bluefnt">{%=data.code%}</strong>
 				Type: <strong class="bluefnt">{%=data.type%}</strong>Br 
-                Floor: <strong class="bluefnt">{%=data.floor%}</strong><br>
-				Area：<strong class="bluefnt">{%=data.area%}</strong>Sqm 
-                Rental:<span class="bluefnt" style="text-decoration:line-through; font-family:vivaldi; font-size:16px;">{%=data.rental%}</span>
-				We Offer:<span id="h">{%=data.offer%}</span>
+                Floor: <strong class="bluefnt">{%=data.floorSize%}</strong><br>
+				Area：<strong class="bluefnt">{%=data.bedroom%}</strong>Sqm 
+                Rental:<span class="bluefnt" style="font-family:vivaldi; font-size:16px;">{%=data.rental%}</span>
 			</p>
 			<p>{%=data.descr%}</p>
-		</div>
-		<div>
+		</div> -->
+		<div class="room-detail-footer">
 			<a href="mailto:yyz201000@163.com">
 				<i class="icon-envelope"></i>联系我们
 			</a>
@@ -190,7 +262,7 @@
 			  data: {'type':type,'page':page?page:1},
 			  success:function(data){
 				console.log(data);
-				$('#houseInfolist7').empty();
+			//	$('#houseInfolist7').empty();
 				$('#houseInfolist7').append(tmpl("tmpl-demo", data.result));
 				var inco=type=='obuilding'?'images/office_24.png':type=='villa'?'images/villa_24.png':'images/apartment_24.png';
 				total = data.totalPage; //$('#icon-h').attr('src',inco);
