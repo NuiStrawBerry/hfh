@@ -1,9 +1,9 @@
 package com.hfh.management.activies;
 
+import org.springframework.jdbc.core.RowMapper;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import org.springframework.jdbc.core.RowMapper;
 
 
 public class ActiviesRowMapper implements RowMapper<Activies> {
