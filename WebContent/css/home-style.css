@@ -44,7 +44,7 @@ body {
 }
 
 .pimg img {
-    background: url("/shanghai/images/loading.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
+  /*  background: url("/shanghai/images/loading.gif") no-repeat scroll center center rgba(0, 0, 0, 0);*/
     height: 200px;
     width: 280px;
 }
