@@ -37,6 +37,26 @@
 	<!--flu pic -->
 	<div class="row-fluid">
 		 <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
+			 <div data-src="timgs/1-1.jpg">
+				 <div class="camera_caption fadeFromBottom">
+				 </div>
+			 </div>
+			 <div data-src="timgs/2-2.jpg">
+				 <div class="camera_caption fadeFromBottom">
+				 </div>
+			 </div>
+			 <div data-src="timgs/3-4.jpg">
+				 <div class="camera_caption fadeFromBottom">
+				 </div>
+			 </div>
+			 <div data-src="timgs/4-2.jpg">
+				 <div class="camera_caption fadeFromBottom">
+				 </div>
+			 </div>
+			 <div data-src="timgs/5-1.jpg">
+				 <div class="camera_caption fadeFromBottom">
+				 </div>
+			 </div>
         </div>
 	</div>
 
@@ -150,12 +170,22 @@
  	var indexNum=0;
 	var params=[{"type":"villa",'dom':'villia_list','limit':'3'},{"type":"obuilding",'dom':'ob_list','limit':'3'},{"type":"aparent",'dom':'apartment_list','limit':'6'}];
     $(function() {
-    	fl();
+    	//fl();
     	for(var i=0;i<params.length;i++){
     		g(params[i]);
     	}
     	homeHotHoses();
     	homeActivities();
+
+		$('#camera_wrap_1').camera({
+			thumbnails: false,
+			fx:'scrollRight',
+			navigation : true,
+			loader:'none',
+			navigationHover:true,
+			playPause:false//开始 暂停按钮
+			//thumbnails: true
+		});
     });
     
     var g=function(params){
@@ -171,7 +201,7 @@
               }
           });
     };
-    var fl = function(){
+    /* var fl = function(){
     	$.ajax({
     		  type: "POST",
                 url: "topflowInfo",
@@ -191,7 +221,7 @@
                     console.log('Data Saved failer:',msg.result);
                 }
             });
-    };
+    }; */
     
     var homeActivities = function(){
     	$.ajax({

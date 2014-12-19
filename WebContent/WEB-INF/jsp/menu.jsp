@@ -7,7 +7,7 @@
 		<div>
 			<div class="row-fluid">
 				<div class="span10">
-						<img alt="140x140" src="images/logo2.png" />
+						<img alt="140x140" src="images/logo1.png" />
 				</div>
 				<div class="span2 language-box">
 					<span><a href="?lang=zh">中文</a>|<a href="?lang=en">English</a></span>
