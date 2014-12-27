@@ -146,14 +146,14 @@
 			<h4 style="font-color:red;">Interested in this property?</h4>
 				Call Us freely at anytime on:
 				<ul class="i_call_us">
-				<li><img alt="" src="images/phone_24.png">&nbsp;&nbsp;025-58733824</li>
+				<li><img alt="" src="images/phone_24.png" />&nbsp;&nbsp;0512-62818239</li>
 				<li>
-					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=891833977&site=qq&menu=yes">
-					 	<img border="0" src="images/qq.png" alt="QQ 交谈" title="QQ 交谈"/>&nbsp;&nbsp;QQ 交谈
-				 	</a>
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=312416704&site=qq&menu=yes">
+						<img border="0" src="images/qq.png" alt="QQ 交谈" title="QQ 交谈"/>&nbsp;&nbsp;QQ 交谈
+					</a>
 			 	</li>
 				
-				<li><img alt="" src="images/email_24.png">&nbsp;&nbsp;jonasyang@gmail.com</li>
+				<li><img alt="" src="images/email_24.png">&nbsp;&nbsp;<a href="mailto:kyle.tan@homefromhomerealestate.com" title="kyle.tan@homefromhomerealestate.com">kyle.tan</a></li>
 				</ul>
 				<p>
 				200 qualified agents ensure you a most excellent relocation experience!
