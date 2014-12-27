@@ -52,7 +52,7 @@
 }
 
 .house-infobox div img{
-	height: 170px;
+	/*height: 170px;*/
 }
 </style>
 <body>
