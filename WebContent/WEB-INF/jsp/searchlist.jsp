@@ -137,7 +137,7 @@
 									<span>Area：<strong class="bluefnt">${list.area}</strong>Sqm </span>
 					               <span> Rental:<strong class="bluefnt">${list.rental}</strong></span>
 								</p>
-								<div height="75px"><p class="descip">${list.destription}</p></div>
+								<!--  <div height="75px"><p class="descip">${list.destription}</p></div>-->
 								
 							</div>
 							<div class="conn-det">
