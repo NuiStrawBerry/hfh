@@ -1,12 +1,11 @@
 package com.hfh.management.emailagent;
 
-import java.util.List;
-
+import com.hfh.bean.EmailedHouse;
+import com.hfh.common.SendMail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hfh.bean.EmailedHouse;
-import com.hfh.common.SendMail;
+import java.util.List;
 
 @Service
 public class EmailHouseInfoServiceImpl implements EmailHouseInfoService {
@@ -20,9 +19,10 @@ public class EmailHouseInfoServiceImpl implements EmailHouseInfoService {
 
 	@Override
 	public boolean saveEmialedHouseInfo(EmailedHouse eh) {
+		//TODO 等待处理 邮件没有成功的重发
 		ehiDao.saveEmialedHouseInfo( eh);
-		 sendMail.send();
-		return false;
+		 sendMail.send(eh);
+		return true;
 	}
 	
 	@Override
