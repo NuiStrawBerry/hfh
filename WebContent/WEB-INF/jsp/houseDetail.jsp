@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <jsp:include page="header.jsp" />
 <link rel="stylesheet" type="text/css" href="css/notify.css">
 <link href="css/home-style.css" rel="stylesheet" type="text/css" />
@@ -173,7 +174,8 @@
 		<div class="span3 email_to_us">
 				To: Subject: ${houseInfo.title}
 				<form id="eTu">
-				<input type="hidden" name="hid" value="${ houseInfo.id}"/>
+				<input type="hidden" name="hid" value="${houseInfo.id}"/>
+				<input type="hidden" name="title" value="${houseInfo.title}"/>
 				<label>Your full name:</label>
 				<input type="text"  class="required" size="25" name="fullname" />
 				<label>Your email:</label>
@@ -183,6 +185,7 @@
 				<label>Your message:</label>
 				<textarea style="width: 200px; height: 50px;" rows="20" cols="45" name="message"></textarea>
 				<input type="button" class="btn" value="send" id="sendEtU"/>
+				<input type="reset" style="display:none;" />
 				</form>
 		</div>
 	
@@ -206,25 +209,31 @@
 			});
 	
 		$("#sendEtU").on("click",function(){
+			not11('<b>sending...</b>','info');
 			$.ajax({
 				  dataType: "json",
 				  type:"post",
 				  url: "emailToUs",
 				  data: $("#eTu").serialize(),
 				  success:function(data){
-					console.log(data);
-					not11();
+					  if(data.resCode==1){
+						  $("input[type=reset]").trigger("click");
+						  not11('<b>send successfully！</b>','success');
+					  }else{
+						  not11('<b>send failed!</b>','error');
+					  }
 				  }
 				});
 		})
 	
 	
     });
-    
-	function not11() {
+
+
+	function not11(msg,type) {
 		notif({
-			msg : "<b>Success:</b> In 5 seconds i'll be gone",
-			type : "success"
+			msg : msg,
+			type : type
 		});
 	}
   </script>
