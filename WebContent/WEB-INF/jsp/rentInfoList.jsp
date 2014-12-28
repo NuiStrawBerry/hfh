@@ -3,53 +3,21 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <jsp:include page="header.jsp" />
 
-<link rel="stylesheet" type="text/css"
-	href="css/jquery-ui-1.9.2.custom.css" />
-<link rel="stylesheet" type="text/css"
-	href="css/bootstrap-responsive.min.css">
-<link href="css/menu-style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css"	href="css/jquery-ui-1.9.2.custom.css" />
+<link rel="stylesheet" type="text/css"	href="css/bootstrap-responsive.min.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link href="css/home-style.css" rel="stylesheet" type="text/css" />
 <link href="css/menu-style.css" rel="stylesheet" type="text/css" />
-<link rel='stylesheet' id='camera-css' href='css/camera.css'
-	type='text/css' media='all'>
-	<link href="css/home-style.css" rel="stylesheet" type="text/css" />
+<link rel='stylesheet' id='camera-css' href='css/camera.css' type='text/css' media='all'>
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/tmpl.min.js"></script>
 <!-- <script src="js/pager.js"></script> -->
 <script src="js/jquery.pagination.min.js"></script>
 <style type="text/css">
-.fnt99 {
-	color: #990000;
-	font-size: 10px;
-}
 
-.bluefnt {
-	color: #0033FF;
-}
 
-.listbtm {
-	border-bottom: 1px dashed #CCCCCC;
-	display: block;
-	height: 128px;
-	line-height: 43px;
-}
 
-.infobox {
-	height: 260px;
-}
-.room-detail-items{
-	width: 138px;
-	display: inline-block;
-}
-.room-detail-footer a{
-	display: inline-block;
-	width: 30%;
-}
-.house-infobox{
-	height: 260px;
-}
 
 .house-infobox div img{
 	/*height: 170px;*/

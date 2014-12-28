@@ -229,3 +229,38 @@ a:hover {
     display: inline;
     padding: 0px 2px;
 }
+/***room ifno list style begain***/
+
+.room-detail-items{
+	width: 30%;
+	display: inline-block;
+}
+.room-detail-footer a{
+	display: inline-block;
+	width: 30%;
+}
+.house-infobox{
+	height: 260px;
+}
+.listbtm {
+	border-bottom: 1px dashed #CCCCCC;
+	display: block;
+	height: 128px;
+	line-height: 43px;
+}
+.infobox {
+	height: 260px;
+}
+
+.fnt99 {
+	color: #990000;
+	font-size: 10px;
+}
+.bluefnt {
+	color: #0033FF;
+}
+
+/***room ifno list style end***/
+
+
+

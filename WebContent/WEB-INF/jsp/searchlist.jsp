@@ -11,28 +11,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/tmpl.min.js" ></script>
 <style type="text/css">
-.fnt99 {
-    color: #990000;
-    font-size: 10px;
-}
-.bluefnt {
-    color: #0033FF;
-}
-.listbtm {
-    border-bottom: 1px dashed #CCCCCC;
-}
 
-.infobox {
-    height: 260px;
-}
-.listbtm p span{
-	width:160px;
-	 margin-right: 15px;
-}
-
-.conn-det a{
-	margin-right: 28px;
-}
 .descip{
 	height: 80px;
 }
@@ -129,23 +108,27 @@
 							
 						</div>
 						<div class="span6 right">
-							<div class="listbtm" style="line-height: 20px;">
-								<p>
-									<span>Property ID:<strong class="bluefnt">${list.code}</strong></span>
-									<span>Type: <strong class="bluefnt">${list.type}</strong>Br </span>
-					               <span> Floor: <strong class="bluefnt">${list.floorSize}</strong></span><br>
-									<span>Area：<strong class="bluefnt">${list.area}</strong>Sqm </span>
-					               <span> Rental:<strong class="bluefnt">${list.rental}</strong></span>
-								</p>
+							<div class="listbtm">
+								<div>
+									<span class="room-detail-items"><span>Property ID:</span><strong class="bluefnt">${list.code}</strong></span>
+									<span class="room-detail-items"><span>Type:</span><strong class="bluefnt">${list.type}</strong></span>
+									<span class="room-detail-items"><span>Floor:</span><strong class="bluefnt">${list.floorSize}</strong></span>
+								</div>
+								<div>
+									<span class="room-detail-items"><span>Bedrooms:</span><strong class="bluefnt">${list.bedroom}</strong></span>
+									<span class="room-detail-items"><span>Area:</span><strong class="bluefnt">${list.area}</strong>Sqm </span>
+									<span class="room-detail-items"><span>Rental:</span><span class="bluefnt" style="font-family:vivaldi; font-size:16px;">${list.rental}</span></span>
+								</div>
 								<!--  <div height="75px"><p class="descip">${list.destription}</p></div>-->
 								
 							</div>
-							<div class="conn-det">
-								<a href="mailto:yyz201000@163.com">
+							<div class="room-detail-footer">
+								<a href="mailto:kyle.tan@homefromhomerealestate.com">
 									<i class="icon-envelope"></i>联系我们
 								</a>
-								<a href="#">
-									<i class="icon-envelope"></i>在线联系
+								<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=312416704&site=qq&menu=yes">
+									<img border="0" src="images/chat.png" alt="QQ 交谈" title="QQ 交谈"/>
+									在线联系
 								</a>
 								<a href="${pageContext.request.contextPath}/houseInfoDetailPage?id=${list.id}" target="_blank">
 									<i class="icon-info-sign"></i>详情
@@ -202,17 +185,14 @@
 					subchild.text($(this).children().text());
 					type='aparent'
 					t();
-					console.log('====','copmpanyinfo');
 					break;
 				case 'villa':
 					subchild.text($(this).children().text());
-					console.log('====','jobs');
 					type='villa';
 					t();
 					break;
 				case 'obuilding':
 					subchild.text($(this).children().text());
-					console.log('====','service');
 					type='obuilding';
 					t();
 					break;
