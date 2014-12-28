@@ -75,7 +75,7 @@
 			<div class="bs-docs-example">
 			<legend>Hot Property Listing.</legend>
 			<ul id='homeHoth_id'>
-				<li><div class="hhtitle">Jiacheng Apartment</div><div class='hhinfo'> 3-0-0Br 130Sqm ￥4300 </div></li>
+				<%--<li><div class="hhtitle">Jiacheng Apartment</div><div class='hhinfo'> 3-0-0Br 130Sqm ￥4300 </div></li>
 				<li><div>Jiacheng Apartment</div><div> 3-0-0Br 130Sqm ￥4300 </div></li>
 				<li><div>Jiacheng Apartment</div><div> 3-0-0Br 130Sqm ￥4300 </div></li>
 				<li><div>Jiacheng Apartment</div><div> 3-0-0Br 130Sqm ￥4300 </div></li>
@@ -84,7 +84,7 @@
 				<li><div>Jiacheng Apartment</div><div> 3-0-0Br 130Sqm ￥4300 </div></li>
 				<li><div>Jiacheng Apartment</div><div> 3-0-0Br 130Sqm ￥4300 </div></li>
 				<li><div>Jiacheng Apartment</div><div> 3-0-0Br 130Sqm ￥4300 </div></li>
-				<li><div>Jiacheng Apartment</div><div> 3-0-0Br 130Sqm ￥4300 </div></li>
+				<li><div>Jiacheng Apartment</div><div> 3-0-0Br 130Sqm ￥4300 </div></li>--%>
 			</ul>
 		</div>
 			<!--thidr-->
@@ -148,8 +148,9 @@
 
 					<a>3-2-2Br &nbsp;{%=data.area%}sqm </a><br>
 					<a>We offer: <span class="sprice">￥ {%=data.rental%}</span></a><br>
-					<a style="line-height:20px;" href="onlierequest" target="_blank"><img src="images/online2.gif"></a> <a style="line-height:20px;" href="#" target="_blank"><img src="images/more2.gif"></a>
-					<img src="images/hot.gif" height="16" width="28"></div>
+					<a style="line-height:20px;" href="onlierequest" target="_blank"><img src="images/online2.gif"></a>
+					<a style="line-height:20px;" href="rentalist?tabs=aparent" target="_blank"><img src="images/more2.gif"></a>
+					{% if(data.isHot==1){ %}<img src="images/hot.gif" height="16" width="28">{% } %}</div>
 				</div>
 
 {% }%}
@@ -256,7 +257,7 @@
     			var html = '';
     			if( houseInfo.length>0){
     				for(var i = 0;i<houseInfo.length;i++){
-    					html +='<li><div class="hhtitle">'+houseInfo[i].title+'</div><div class="hhinfo"> 3-0-0Br '+houseInfo[i].area+'Sqm ￥'+houseInfo[i].rental+' </div></li>'
+    					html +='<li><div class="hhtitle">'+houseInfo[i].title+'</div><div class="hhinfo">'+ houseInfo[i].bedroom+' Br '+houseInfo[i].area+'Sqm ￥'+houseInfo[i].rental+' </div></li>'
     				}
     				$('#homeHoth_id').html(html);
     			}else{
