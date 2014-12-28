@@ -119,54 +119,12 @@
 					<li id="subchild" class="active">高档公寓</li>
 				</ul>
 				<input type="hidden" id="b_tabs" value="${tabs }">
+				<!-- 信息列表 -->
 				<div id='houseInfolist7'>
-<div id="infobox" class="house-infobox">
-	<div class="well well-small">
-		<span><img id="icon-h" src="images/aparent_24.png"></span>
-		<span><strong><a href="/houseInfoDetailPage?id=40a99f92-29c2-11e4-be23-e19f4fe83399">Golden Lough / 金水湾100</a></strong></span>
-		<span class="fnt99">in&nbsp;&nbsp;<strong>Jinjihu Ave</strong></span> 
-						<!--  <span>hot</span>-->
-	</div>
-	<div class="span4 left">
-		<!--<img width="260" height="170" src="">-->
-<img src="timgs/20140901153143_057e6b9c-31aa-11e4-b3ad-952efb376843.jpg" height="170" width="260">
 
-	</div>
-	<div class="span6 right">
-		<div class="listbtm">
-			<div style="position: relative; bottom: 0px; width: 100%; margin-bottom: 2px;">
-			<div>
-				<span class="room-detail-items"><span>Property ID:</span><strong class="bluefnt">v100</strong></span>
-				<span class="room-detail-items"><span>Type:</span><strong class="bluefnt">aparent</strong></span>
-				<span class="room-detail-items"><span>Floor:</span><strong class="bluefnt">12</strong></span>
-			</div>
-			<div>
-				<span class="room-detail-items"><span>Bedrooms:</span><strong class="bluefnt">v100</strong></span>
-				<span class="room-detail-items"><span>Area:</span><strong class="bluefnt">356</strong>Sqm </span>
-				<span class="room-detail-items"><span>Rental:</span><span class="bluefnt" style="font-family:vivaldi; font-size:16px;">25000</span></span>
-			</div>
-			</div>
-		</div>
-		<div>
-			<a href="mailto:yyz201000@163.com">
-				<i class="icon-envelope"></i>联系我们
-			</a>
-			<a href="#">
-				<i class="icon-envelope"></i>在线联系
-			</a>
-			<a href="/houseInfoDetailPage?id=40a99f92-29c2-11e4-be23-e19f4fe83399" target="_blank">
-				<i class="icon-info-sign"></i>详情
-			</a>
-		</div>
-	</div>
-</div>
 				</div>
-
-				<div id="test3" class="pagination  pagination-right">
-					<ul>
-					</ul>
-				</div>
-				<div id="test4" class="pagination  pagination-right">
+				<!-- 分页  -->
+				<div id="pager_id" class="pagination  pagination-right">
 					<ul>
 					</ul>
 				</div>
@@ -214,11 +172,12 @@
 			<p>{%=data.descr%}</p>
 		</div> -->
 		<div class="room-detail-footer">
-			<a href="mailto:yyz201000@163.com">
+			<a href="mailto:kyle.tan@homefromhomerealestate.com">
 				<i class="icon-envelope"></i>联系我们
 			</a>
-			<a href="#">
-				<i class="icon-envelope"></i>在线联系
+			<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=312416704&site=qq&menu=yes">
+					<img border="0" src="images/chat.png" alt="QQ 交谈" title="QQ 交谈"/> 
+				在线联系
 			</a>
 			<a href="${pageContext.request.contextPath}/houseInfoDetailPage?id={%=data.id%}" target="_blank">
 				<i class="icon-info-sign"></i>详情
@@ -266,11 +225,8 @@
 				$('#houseInfolist7').append(tmpl("tmpl-demo", data.result));
 				var inco=type=='obuilding'?'images/office_24.png':type=='villa'?'images/villa_24.png':'images/apartment_24.png';
 				total = data.totalPage; //$('#icon-h').attr('src',inco);
-				if($("#test3 ul").children().length){
-					$("#test3 ul li").detach();
-				}
 				//new Pager('',total,step,perShow,type).init();
-			  	 $("#test4").twbsPagination({
+			  	 $("#pager_id").twbsPagination({
 		    	        totalPages:total, //the number of pages (required, checked),
 				    	// startPage:'',// the current page that show on start(default: 1),
 				    	 visiblePages:6,// maximum visible pages (default: 5),
