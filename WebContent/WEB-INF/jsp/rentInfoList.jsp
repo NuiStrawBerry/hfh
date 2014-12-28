@@ -4,10 +4,10 @@
 <jsp:include page="header.jsp" />
 
 <link rel="stylesheet" type="text/css"	href="css/jquery-ui-1.9.2.custom.css" />
+<link href="css/home-style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css"	href="css/bootstrap-responsive.min.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link href="css/home-style.css" rel="stylesheet" type="text/css" />
-<link href="css/menu-style.css" rel="stylesheet" type="text/css" />
+
 <link rel='stylesheet' id='camera-css' href='css/camera.css' type='text/css' media='all'>
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
